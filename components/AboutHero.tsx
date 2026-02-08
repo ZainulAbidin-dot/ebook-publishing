@@ -8,15 +8,14 @@ export default function AboutHero() {
     const { hero } = data.pages.about;
     return (
         <section className="section" style={{
-            minHeight: '30vh',
-            maxHeight: '85vh',
+            minHeight: 'min(70vh, 600px)',
             display: 'flex',
             alignItems: 'center',
             position: 'relative',
-            padding: '10rem 0 6rem',
+            padding: 'clamp(6rem, 15vw, 10rem) 0 clamp(3rem, 8vw, 6rem)',
             textAlign: 'center',
             overflow: 'hidden',
-            color: 'white' // Better contrast on dark overlay
+            color: 'white'
         }}>
             {/* Background Image Banner with Ken Burns Effect */}
             <motion.div
@@ -64,8 +63,8 @@ export default function AboutHero() {
                     top: '20%',
                     left: '50%',
                     transform: 'translateX(-50%)',
-                    width: '600px',
-                    height: '600px',
+                    width: 'clamp(300px, 60vw, 600px)',
+                    height: 'clamp(300px, 60vw, 600px)',
                     borderRadius: '50%',
                     background: 'var(--accent)',
                     filter: 'blur(150px)',
@@ -82,8 +81,8 @@ export default function AboutHero() {
                     style={{
                         backgroundColor: 'rgba(255, 255, 255, 0.03)',
                         backdropFilter: 'blur(10px)',
-                        padding: '4rem 2rem',
-                        borderRadius: '2.5rem',
+                        padding: 'clamp(1.5rem, 5vw, 4rem) clamp(1rem, 4vw, 2rem)',
+                        borderRadius: 'clamp(1rem, 3vw, 2.5rem)',
                         border: '1px solid rgba(255, 255, 255, 0.1)',
                         maxWidth: '1100px',
                         margin: '0 auto'
@@ -97,8 +96,8 @@ export default function AboutHero() {
                             color: 'var(--accent)',
                             fontWeight: 700,
                             textTransform: 'uppercase',
-                            marginBottom: '1.5rem',
-                            fontSize: '1rem',
+                            marginBottom: 'clamp(0.75rem, 2vw, 1.5rem)',
+                            fontSize: 'clamp(0.75rem, 2vw, 1rem)',
                             textShadow: '0 2px 10px rgba(0,0,0,0.5)'
                         }}
                     >
@@ -110,11 +109,11 @@ export default function AboutHero() {
                         transition={{ delay: 0.3, duration: 0.8 }}
                         className="hero-title"
                         style={{
-                            fontSize: 'clamp(2.5rem, 8vw, 3rem)',
+                            fontSize: 'clamp(1.5rem, 5vw, 3rem)',
                             fontWeight: 900,
-                            lineHeight: 1.1,
-                            marginBottom: '2rem',
-                            margin: '0 auto 2rem',
+                            lineHeight: 1.2,
+                            marginBottom: 'clamp(1rem, 3vw, 2rem)',
+                            margin: '0 auto clamp(1rem, 3vw, 2rem)',
                             maxWidth: '1200px',
                             textShadow: '0 4px 20px rgba(0,0,0,0.6)'
                         }}
@@ -126,11 +125,11 @@ export default function AboutHero() {
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ delay: 0.5, duration: 0.8 }}
                         style={{
-                            fontSize: '1.2rem',
+                            fontSize: 'clamp(0.9rem, 2.5vw, 1.2rem)',
                             color: 'rgba(255, 255, 255, 0.9)',
                             maxWidth: '850px',
-                            margin: '0 auto 2.5rem',
-                            lineHeight: 1.6,
+                            margin: '0 auto clamp(1.5rem, 4vw, 2.5rem)',
+                            lineHeight: 1.7,
                             textShadow: '0 2px 10px rgba(0,0,0,0.4)'
                         }}
                     >
@@ -140,16 +139,23 @@ export default function AboutHero() {
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ delay: 0.7 }}
-                        style={{ display: 'flex', gap: '1rem', marginBottom: '3rem', justifyContent: 'center', flexWrap: 'wrap', alignItems: 'center' }}
+                        style={{
+                            display: 'flex',
+                            gap: 'clamp(0.5rem, 2vw, 1rem)',
+                            marginBottom: 'clamp(1rem, 3vw, 3rem)',
+                            justifyContent: 'center',
+                            flexWrap: 'wrap',
+                            alignItems: 'center'
+                        }}
                     >
                         <motion.button
                             whileHover={{ scale: 1.05 }}
                             whileTap={{ scale: 0.95 }}
                             className="btn btn-primary"
                             style={{
-                                padding: '1rem 2.5rem',
-                                fontSize: '1rem',
-                                minWidth: '180px',
+                                padding: 'clamp(0.75rem, 2vw, 1rem) clamp(1.5rem, 4vw, 2.5rem)',
+                                fontSize: 'clamp(0.85rem, 2vw, 1rem)',
+                                minWidth: 'clamp(140px, 30vw, 180px)',
                                 boxShadow: '0 8px 30px rgba(99, 102, 241, 0.3)'
                             }}
                         >
@@ -160,9 +166,9 @@ export default function AboutHero() {
                             whileTap={{ scale: 0.95 }}
                             className="btn"
                             style={{
-                                padding: '1rem 2.5rem',
-                                fontSize: '1rem',
-                                minWidth: '180px',
+                                padding: 'clamp(0.75rem, 2vw, 1rem) clamp(1.5rem, 4vw, 2.5rem)',
+                                fontSize: 'clamp(0.85rem, 2vw, 1rem)',
+                                minWidth: 'clamp(140px, 30vw, 180px)',
                                 border: '1px solid rgba(255,255,255,0.5)',
                                 color: 'white',
                                 background: 'transparent'
@@ -174,14 +180,15 @@ export default function AboutHero() {
                 </motion.div>
             </div>
 
-            {/* Refined Scroll Indicator (Animated Cursor) */}
+            {/* Refined Scroll Indicator - Hidden on small screens */}
             <motion.div
                 initial={{ opacity: 0, y: -20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 1.5, duration: 1 }}
+                className="scroll-indicator-desktop"
                 style={{
                     position: 'absolute',
-                    bottom: '2rem',
+                    bottom: 'clamp(1rem, 3vw, 2rem)',
                     left: '50%',
                     transform: 'translateX(-50%)',
                     zIndex: 3,
@@ -197,10 +204,10 @@ export default function AboutHero() {
                     }}
                     transition={{ duration: 2, repeat: Infinity }}
                     style={{
-                        width: '26px',
-                        height: '45px',
+                        width: '24px',
+                        height: '40px',
                         border: '2px solid rgba(255,255,255,0.5)',
-                        borderRadius: '13px',
+                        borderRadius: '12px',
                         display: 'flex',
                         justifyContent: 'center',
                         paddingTop: '6px'
@@ -208,7 +215,7 @@ export default function AboutHero() {
                 >
                     <motion.div
                         animate={{
-                            y: [0, 15, 0],
+                            y: [0, 12, 0],
                             opacity: [1, 0.5, 1]
                         }}
                         transition={{
@@ -225,8 +232,16 @@ export default function AboutHero() {
                         }}
                     />
                 </motion.div>
-                <span style={{ fontSize: '0.7rem', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '2px', color: 'rgba(255,255,255,0.5)' }}>Scroll</span>
+                <span style={{ fontSize: '0.65rem', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '2px', color: 'rgba(255,255,255,0.5)' }}>Scroll</span>
             </motion.div>
+
+            <style jsx global>{`
+                @media (max-width: 600px) {
+                    .scroll-indicator-desktop {
+                        display: none !important;
+                    }
+                }
+            `}</style>
         </section>
     );
 }
