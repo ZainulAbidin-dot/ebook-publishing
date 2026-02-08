@@ -27,7 +27,7 @@ export default function ServicesPage() {
             {/* Hero Section */}
             <section className="section" style={{
                 position: 'relative',
-                padding: '12rem 0 8rem',
+                padding: 'var(--section-padding) 0',
                 overflow: 'hidden',
                 backgroundColor: 'var(--primary)',
                 color: 'white'
@@ -65,7 +65,7 @@ export default function ServicesPage() {
                         initial={{ opacity: 0, y: 30 }}
                         animate={{ opacity: 1, y: 0 }}
                         style={{
-                            fontSize: 'clamp(3rem, 6vw, 5.5rem)',
+                            fontSize: 'clamp(2.5rem, 8vw, 5.5rem)',
                             fontFamily: 'var(--font-serif)',
                             marginBottom: '2rem'
                         }}
@@ -77,7 +77,7 @@ export default function ServicesPage() {
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ delay: 0.2 }}
                         style={{
-                            fontSize: '1.25rem',
+                            fontSize: 'clamp(1rem, 2.5vw, 1.25rem)',
                             maxWidth: '850px',
                             margin: '0 auto',
                             color: 'rgba(255,255,255,0.85)',
@@ -89,10 +89,9 @@ export default function ServicesPage() {
                 </div>
             </section>
 
-            {/* Services Grid Section */}
-            <section className="section" style={{ padding: '10rem 0' }}>
+            <section className="section" style={{ padding: 'var(--section-padding) 0' }}>
                 <div className="container">
-                    <div className="grid grid-3" style={{ gap: '3rem', gridTemplateColumns: 'repeat(auto-fit, minmax(350px, 1fr))' }}>
+                    <div className="grid" style={{ gap: '2rem', gridTemplateColumns: 'repeat(auto-fit, minmax(clamp(280px, 100%, 380px), 1fr))' }}>
                         {servicesOverview.items.map((item, idx) => (
                             <motion.div
                                 key={idx}
@@ -189,18 +188,17 @@ export default function ServicesPage() {
                 </div>
             </section>
 
-            {/* Newsletter/Legacy Section */}
-            <section className="section" style={{ backgroundColor: 'var(--bg-secondary)', padding: '8rem 0' }}>
+            <section className="section" style={{ backgroundColor: 'var(--bg-secondary)' }}>
                 <div className="container">
                     <motion.div
                         initial={{ opacity: 0, scale: 0.95 }}
                         whileInView={{ opacity: 1, scale: 1 }}
                         viewport={{ once: true }}
                         style={{
-                            padding: '10rem 4rem',
+                            padding: 'clamp(4rem, 12vw, 10rem) clamp(1.5rem, 5vw, 4rem)',
                             background: 'var(--primary)',
                             color: 'white',
-                            borderRadius: '4rem',
+                            borderRadius: 'clamp(2rem, 5vw, 4rem)',
                             backgroundImage: `url(${Pattern.src})`,
                             backgroundSize: '400px',
                             backgroundBlendMode: 'overlay',
@@ -210,17 +208,19 @@ export default function ServicesPage() {
                         }}
                     >
                         <div style={{ position: 'relative', zIndex: 1 }}>
-                            <h2 style={{ fontSize: '4rem', marginBottom: '2rem', fontFamily: 'var(--font-serif)' }}>Ready to Write Your Legacy?</h2>
-                            <p style={{ maxWidth: '800px', margin: '0 auto 4rem', opacity: 0.85, fontSize: '1.3rem', lineHeight: 1.8 }}>
+                            <h2 style={{ fontSize: 'clamp(2.5rem, 6vw, 4rem)', marginBottom: '2rem', fontFamily: 'var(--font-serif)' }}>Ready to Write Your Legacy?</h2>
+                            <p style={{ maxWidth: '800px', margin: '0 auto 4rem', opacity: 0.85, fontSize: 'clamp(1.1rem, 2.5vw, 1.3rem)', lineHeight: 1.8 }}>
                                 Our dedicated team of experts is standing by to help you every step of the way. Let's create something extraordinary together.
                             </p>
-                            <div style={{ display: 'flex', gap: '2rem', justifyContent: 'center', flexWrap: 'wrap' }}>
-                                <button className="btn btn-primary" style={{ padding: '1.5rem 4rem', fontSize: '1.15rem' }}>Schedule a Consultation</button>
+                            <div style={{ display: 'flex', gap: '1.5rem', justifyContent: 'center', flexWrap: 'wrap' }}>
+                                <button className="btn btn-primary" style={{ padding: '1.5rem clamp(2rem, 5vw, 4rem)', fontSize: '1.15rem', width: 'auto', minWidth: '240px' }}>Schedule a Consultation</button>
                                 <button className="btn btn-outline" style={{
-                                    padding: '1.5rem 4rem',
+                                    padding: '1.5rem clamp(2rem, 5vw, 4rem)',
                                     fontSize: '1.15rem',
                                     borderColor: 'white',
-                                    color: 'white'
+                                    color: 'white',
+                                    width: 'auto',
+                                    minWidth: '240px'
                                 }}>Reach Our Team</button>
                             </div>
                         </div>

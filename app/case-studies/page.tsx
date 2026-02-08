@@ -17,7 +17,7 @@ export default function CaseStudiesPage() {
             {/* Hero Section */}
             <section className="section" style={{
                 position: 'relative',
-                padding: '12rem 0 8rem',
+                padding: 'var(--section-padding) 0',
                 overflow: 'hidden',
                 backgroundColor: 'var(--primary)',
                 color: 'white'
@@ -56,7 +56,7 @@ export default function CaseStudiesPage() {
                         initial={{ opacity: 0, y: 30 }}
                         animate={{ opacity: 1, y: 0 }}
                         style={{
-                            fontSize: 'clamp(3rem, 6vw, 5rem)',
+                            fontSize: 'clamp(2.5rem, 8vw, 5rem)',
                             fontFamily: 'var(--font-serif)',
                             marginBottom: '2rem'
                         }}
@@ -68,7 +68,7 @@ export default function CaseStudiesPage() {
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ delay: 0.2 }}
                         style={{
-                            fontSize: '1.25rem',
+                            fontSize: 'clamp(1rem, 2.5vw, 1.25rem)',
                             maxWidth: '800px',
                             margin: '0 auto',
                             color: 'rgba(255,255,255,0.8)',
@@ -93,7 +93,7 @@ export default function CaseStudiesPage() {
                                 transition={{ delay: idx * 0.1 }}
                                 className="glass"
                                 style={{
-                                    padding: '3.5rem',
+                                    padding: 'var(--container-padding)',
                                     borderRadius: '2.5rem',
                                     border: '1px solid var(--border)',
                                     display: 'flex',
@@ -129,7 +129,7 @@ export default function CaseStudiesPage() {
 
                                 <div>
                                     <h3 style={{
-                                        fontSize: '2.25rem',
+                                        fontSize: 'clamp(1.75rem, 4vw, 2.25rem)',
                                         color: 'var(--primary)',
                                         fontFamily: 'var(--font-serif)',
                                         marginBottom: '0.5rem'
@@ -184,10 +184,10 @@ export default function CaseStudiesPage() {
                         whileInView={{ opacity: 1, scale: 1 }}
                         viewport={{ once: true }}
                         style={{
-                            padding: '8rem 2rem',
+                            padding: 'clamp(3rem, 10vw, 8rem) var(--container-padding)',
                             background: 'var(--primary)',
                             color: 'white',
-                            borderRadius: '3.5rem',
+                            borderRadius: '2.5rem',
                             backgroundImage: `url(${Pattern.src})`,
                             backgroundSize: '400px',
                             backgroundBlendMode: 'overlay',
@@ -196,15 +196,16 @@ export default function CaseStudiesPage() {
                         }}
                     >
                         <div style={{ position: 'relative', zIndex: 1 }}>
-                            <h2 style={{ fontSize: '3.5rem', marginBottom: '2rem', fontFamily: 'var(--font-serif)' }}>See Your Book Here</h2>
-                            <p style={{ maxWidth: '700px', margin: '0 auto 4rem', opacity: 0.8, fontSize: '1.25rem', lineHeight: 1.8 }}>Our team of world-class ghostwriters and markers are ready to help you write your next bestseller.</p>
+                            <h2 style={{ fontSize: 'clamp(2.5rem, 6vw, 3.5rem)', marginBottom: '2rem', fontFamily: 'var(--font-serif)' }}>See Your Book Here</h2>
+                            <p style={{ maxWidth: '700px', margin: '0 auto 4rem', opacity: 0.8, fontSize: 'clamp(1rem, 2.5vw, 1.25rem)', lineHeight: 1.8 }}>Our team of world-class ghostwriters and markers are ready to help you write your next bestseller.</p>
                             <div style={{ display: 'flex', gap: '1.5rem', justifyContent: 'center', flexWrap: 'wrap' }}>
-                                <button className="btn btn-primary" style={{ padding: '1.5rem 3.5rem', fontSize: '1.1rem' }}>Consult an Expert</button>
+                                <button className="btn btn-primary" style={{ padding: '1.25rem 2.5rem', fontSize: '1.1rem', width: 'clamp(200px, 100%, 300px)' }}>Consult an Expert</button>
                                 <button className="btn btn-outline" style={{
-                                    padding: '1.5rem 3.5rem',
+                                    padding: '1.25rem 2.5rem',
                                     fontSize: '1.1rem',
                                     borderColor: 'white',
-                                    color: 'white'
+                                    color: 'white',
+                                    width: 'clamp(200px, 100%, 300px)'
                                 }}>View Services</button>
                             </div>
                         </div>

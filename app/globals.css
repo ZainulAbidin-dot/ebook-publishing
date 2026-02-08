@@ -19,6 +19,8 @@
   --max-width: 1400px;
   --font-serif: 'Playfair Display', Georgia, serif;
   --header-height: 70px;
+  --section-padding: clamp(4rem, 8vw, 10rem);
+  --container-padding: clamp(1.25rem, 5vw, 4rem);
 }
 
 /* Navbar & Mobile Menu Styles */
@@ -40,7 +42,7 @@
     padding: 100px 2rem 2rem;
     transition: 0.4s cubic-bezier(0.4, 0, 0.2, 1);
     box-shadow: -10px 0 30px rgba(0, 0, 0, 0.1);
-    z-index: 1001;
+    z-index: 1010;
     align-items: flex-start;
   }
 
@@ -51,7 +53,7 @@
   .hamburger {
     display: block !important;
     cursor: pointer;
-    z-index: 1002;
+    z-index: 1020;
     padding: 0.5rem;
     background: transparent;
     border: none;
@@ -87,7 +89,7 @@
     opacity: 0;
     visibility: hidden;
     transition: 0.4s;
-    z-index: 1000;
+    z-index: 990;
   }
 
   .nav-overlay.active {
@@ -150,11 +152,11 @@ ul {
 .container {
   max-width: var(--max-width);
   margin: 0 auto;
-  padding: 0 1.5rem;
+  padding: 0 var(--container-padding);
 }
 
 .section {
-  padding: 5rem 0;
+  padding: var(--section-padding) 0;
 }
 
 .btn {

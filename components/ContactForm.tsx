@@ -11,7 +11,7 @@ export default function ContactForm() {
         <section className="section" style={{
             backgroundColor: 'var(--bg-main)',
             position: 'relative',
-            padding: '8rem 0',
+            padding: 'var(--section-padding) 0',
             overflow: 'hidden'
         }}>
             {/* Animated Background Elements */}
@@ -152,7 +152,7 @@ export default function ContactForm() {
                         style={{
                             backgroundColor: 'rgba(255, 255, 255, 0.02)',
                             backdropFilter: 'blur(30px)',
-                            padding: '4rem',
+                            padding: 'var(--container-padding)',
                             borderRadius: '3rem',
                             border: '1px solid rgba(255, 255, 255, 0.08)',
                             boxShadow: '0 25px 50px -12px rgba(0, 0, 0, 0.5)'
@@ -246,7 +246,8 @@ export default function ContactForm() {
                                     marginTop: '1rem',
                                     boxShadow: '0 15px 30px rgba(99, 102, 241, 0.3)',
                                     textTransform: 'uppercase',
-                                    letterSpacing: '2px'
+                                    letterSpacing: '2px',
+                                    width: '100%'
                                 }}
                             >
                                 Send Message

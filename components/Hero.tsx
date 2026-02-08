@@ -8,11 +8,11 @@ export default function Hero() {
     const { hero } = data.pages.home;
     return (
         <section className="section" style={{
-            minHeight: '90vh',
+            minHeight: '85vh',
             display: 'flex',
             alignItems: 'center',
             position: 'relative',
-            padding: '4rem 0',
+            padding: 'var(--section-padding) 0',
             overflow: 'hidden',
             backgroundColor: 'var(--primary)',
             color: 'white'
@@ -22,32 +22,50 @@ export default function Hero() {
                 position: 'absolute',
                 top: 0,
                 right: 0,
-                width: '60%',
+                width: '100%',
                 height: '100%',
                 zIndex: 0
             }}>
-                <Image
-                    src={HeroImg}
-                    alt="Hero Background"
-                    fill
-                    priority
-                    style={{
-                        objectFit: 'cover',
-                        objectPosition: 'center',
-                    }}
-                />
                 <div style={{
                     position: 'absolute',
                     top: 0,
-                    left: 0,
                     right: 0,
-                    bottom: 0,
-                    background: 'linear-gradient(to right, var(--primary) 0%, rgba(0, 61, 51, 0.8) 40%, transparent 100%)',
-                }} />
+                    width: 'clamp(300px, 60%, 100%)',
+                    height: '100%',
+                    zIndex: 0
+                }}>
+                    <Image
+                        src={HeroImg}
+                        alt="Hero Background"
+                        fill
+                        priority
+                        style={{
+                            objectFit: 'cover',
+                            objectPosition: 'center',
+                        }}
+                    />
+                    <div style={{
+                        position: 'absolute',
+                        top: 0,
+                        left: 0,
+                        right: 0,
+                        bottom: 0,
+                        background: 'linear-gradient(to right, var(--primary) 0%, rgba(0, 61, 51, 0.8) 40%, transparent 100%)',
+                    }} className="nav-desktop" />
+                    {/* Mobile specific overlay to ensure text readability */}
+                    <div style={{
+                        position: 'absolute',
+                        top: 0,
+                        left: 0,
+                        right: 0,
+                        bottom: 0,
+                        background: 'rgba(0, 61, 51, 0.7)',
+                    }} className="nav-mobile" />
+                </div>
             </div>
 
             <div className="container" style={{ position: 'relative', zIndex: 1, width: '100%' }}>
-                <div style={{ maxWidth: '700px' }}>
+                <div style={{ maxWidth: '800px' }}>
                     <motion.div
                         initial={{ opacity: 0, x: -30 }}
                         animate={{ opacity: 1, x: 0 }}
@@ -59,12 +77,13 @@ export default function Hero() {
                             textTransform: 'uppercase',
                             letterSpacing: '2px',
                             display: 'block',
-                            marginBottom: '1rem'
+                            marginBottom: '1rem',
+                            fontSize: 'clamp(0.85rem, 2vw, 1.1rem)'
                         }}>
                             {hero.description}
                         </span>
                         <h1 className="hero-title" style={{
-                            fontSize: 'clamp(2.5rem, 6vw, 4.5rem)',
+                            fontSize: 'clamp(2.5rem, 7vw, 5rem)',
                             fontWeight: 900,
                             marginBottom: '1.5rem',
                             lineHeight: 1.1,
@@ -73,16 +92,16 @@ export default function Hero() {
                             {hero.title}
                         </h1>
                         <p style={{
-                            fontSize: '1.25rem',
+                            fontSize: 'clamp(1rem, 2.5vw, 1.35rem)',
                             fontWeight: 400,
                             color: 'rgba(255, 255, 255, 0.9)',
-                            marginBottom: '3rem',
+                            marginBottom: 'clamp(2rem, 5vw, 4rem)',
                             lineHeight: 1.6
                         }}>
                             {hero.subtitle}
                         </p>
-                        <div style={{ display: 'flex', gap: '1.5rem', flexWrap: 'wrap' }}>
-                            <button className="btn btn-primary" style={{ padding: '1.25rem 3rem', fontSize: '1.1rem', backgroundColor: 'var(--accent)', color: 'var(--primary)', fontWeight: 800 }}>
+                        <div style={{ display: 'flex', gap: '1rem', flexWrap: 'wrap' }}>
+                            <button className="btn btn-primary" style={{ padding: '1.25rem 3rem', fontSize: '1.1rem', backgroundColor: 'var(--accent)', color: 'var(--primary)', fontWeight: 800, minWidth: '200px' }}>
                                 {hero.cta}
                             </button>
                             <button className="btn" style={{
@@ -91,7 +110,8 @@ export default function Hero() {
                                 border: '2px solid white',
                                 color: 'white',
                                 background: 'transparent',
-                                fontWeight: 700
+                                fontWeight: 700,
+                                minWidth: '200px'
                             }}>
                                 Live Chat
                             </button>

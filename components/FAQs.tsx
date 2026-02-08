@@ -8,14 +8,14 @@ export default function FAQs() {
     const [openIndex, setOpenIndex] = useState<number | null>(null);
 
     return (
-        <section className="section" style={{ backgroundColor: 'var(--bg-main)', padding: '8rem 0' }}>
+        <section className="section" style={{ backgroundColor: 'var(--bg-main)', padding: 'var(--section-padding) 0' }}>
             <div className="container">
                 <motion.h2
                     initial={{ opacity: 0, y: 20 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
                     className="section-title"
-                    style={{ marginBottom: '4rem', fontFamily: 'var(--font-serif)', color: 'var(--primary)', fontSize: '2.5rem' }}
+                    style={{ marginBottom: '4rem', fontFamily: 'var(--font-serif)', color: 'var(--primary)', fontSize: 'clamp(2.5rem, 5vw, 3.5rem)' }}
                 >
                     {faqs.title}
                 </motion.h2>

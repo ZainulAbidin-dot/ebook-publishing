@@ -22,7 +22,7 @@ export default function Services() {
     return (
         <section className="section" style={{
             backgroundColor: 'var(--primary)',
-            padding: '10rem 0',
+            padding: 'var(--section-padding) 0',
             position: 'relative',
             overflow: 'hidden'
         }}>
@@ -44,17 +44,17 @@ export default function Services() {
             }} />
 
             <div className="container" style={{ position: 'relative', zIndex: 1 }}>
-                <div style={{ textAlign: 'center', marginBottom: '6rem' }}>
+                <div style={{ textAlign: 'center', marginBottom: 'clamp(3rem, 8vw, 6rem)' }}>
                     <motion.h2
                         initial={{ opacity: 0, y: 20 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
                         className="section-title"
                         style={{
-                            marginBottom: '2rem',
+                            marginBottom: '1.5rem',
                             fontFamily: 'var(--font-serif)',
                             color: 'white',
-                            fontSize: '3.5rem'
+                            fontSize: 'clamp(2.25rem, 6vw, 3.5rem)'
                         }}
                     >
                         {servicesOverview.title}
@@ -68,14 +68,14 @@ export default function Services() {
                             color: 'rgba(255, 255, 255, 0.8)',
                             maxWidth: '900px',
                             margin: '0 auto',
-                            fontSize: '1.2rem',
+                            fontSize: 'clamp(1rem, 2.5vw, 1.2rem)',
                             lineHeight: 1.8
                         }}
                     >
                         {servicesOverview.description}
                     </motion.p>
                 </div>
-                <div className="grid grid-3" style={{ gap: '2.5rem', gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))' }}>
+                <div className="grid" style={{ gap: '2rem', gridTemplateColumns: 'repeat(auto-fit, minmax(clamp(280px, 100%, 350px), 1fr))' }}>
                     {servicesOverview.items.map((item, idx) => (
                         <motion.div
                             key={idx}
@@ -89,7 +89,7 @@ export default function Services() {
                                 display: 'flex',
                                 flexDirection: 'column',
                                 gap: '1.5rem',
-                                padding: '3.5rem 2.5rem',
+                                padding: 'clamp(2.5rem, 5vw, 3.5rem) clamp(1.5rem, 5vw, 2.5rem)',
                                 position: 'relative',
                                 cursor: 'default',
                                 height: '100%',
@@ -111,10 +111,10 @@ export default function Services() {
                                     }
                                 }}
                                 style={{
-                                    width: '70px',
-                                    height: '70px',
+                                    width: '64px',
+                                    height: '64px',
                                     backgroundColor: 'rgba(245, 158, 11, 0.1)',
-                                    borderRadius: '20px',
+                                    borderRadius: '18px',
                                     display: 'flex',
                                     alignItems: 'center',
                                     justifyContent: 'center',
@@ -124,14 +124,14 @@ export default function Services() {
                                     flexShrink: 0
                                 }}
                             >
-                                <div style={{ width: '32px', height: '32px' }}>
+                                <div style={{ width: '28px', height: '28px' }}>
                                     {ServiceIcons[item.title] || <span>{idx + 1}</span>}
                                 </div>
                             </motion.div>
 
                             <h4 style={{
                                 margin: 0,
-                                fontSize: '1.75rem',
+                                fontSize: 'clamp(1.35rem, 4vw, 1.75rem)',
                                 fontWeight: 800,
                                 color: 'var(--accent)',
                                 fontFamily: 'var(--font-serif)'
@@ -140,7 +140,7 @@ export default function Services() {
                             </h4>
                             <p style={{
                                 color: 'rgba(255, 255, 255, 0.7)',
-                                fontSize: '1.05rem',
+                                fontSize: '1rem',
                                 margin: 0,
                                 lineHeight: 1.8,
                                 flexGrow: 1

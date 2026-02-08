@@ -13,7 +13,7 @@ export default function GhostwritingExpertise() {
             backgroundColor: 'var(--bg-main)',
             position: 'relative',
             overflow: 'hidden',
-            padding: '5rem 0'
+            padding: 'var(--section-padding) 0'
         }}>
             {/* Background Pattern */}
             <div style={{
@@ -53,7 +53,7 @@ export default function GhostwritingExpertise() {
                         initial={{ opacity: 0, scale: 0.95 }}
                         whileInView={{ opacity: 1, scale: 1 }}
                         viewport={{ once: true }}
-                        style={{ fontSize: '2.5rem', marginBottom: '1.5rem', maxWidth: '1000px', margin: '0 auto 1.5rem', fontFamily: 'var(--font-serif)', color: 'var(--primary)' }}
+                        style={{ fontSize: 'clamp(2rem, 5vw, 3rem)', marginBottom: '1.5rem', maxWidth: '1000px', margin: '0 auto 1.5rem', fontFamily: 'var(--font-serif)', color: 'var(--primary)' }}
                     >
                         {ghostwritingExpertise.title}
                     </motion.h2>
@@ -62,7 +62,7 @@ export default function GhostwritingExpertise() {
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
                         transition={{ delay: 0.2 }}
-                        style={{ color: 'var(--text-muted)', maxWidth: '900px', margin: '0 auto 3rem', fontSize: '1.1rem' }}
+                        style={{ color: 'var(--text-muted)', maxWidth: '900px', margin: '0 auto 3rem', fontSize: 'clamp(1rem, 2.5vw, 1.15rem)' }}
                     >
                         {ghostwritingExpertise.subtitle}
                     </motion.p>

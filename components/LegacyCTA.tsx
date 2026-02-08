@@ -10,7 +10,7 @@ export default function LegacyCTA() {
         <section className="section" style={{
             color: 'white',
             textAlign: 'center',
-            padding: '10rem 0',
+            padding: 'var(--section-padding) 0',
             overflow: 'hidden',
             position: 'relative',
             backgroundColor: '#1a1801' // Fallback dark color
@@ -62,7 +62,7 @@ export default function LegacyCTA() {
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
                     transition={{ delay: 0.4 }}
-                    style={{ fontSize: '1.25rem', opacity: 0.8, marginBottom: '4rem', fontWeight: 500, maxWidth: '700px', margin: '0 auto 4rem' }}
+                    style={{ fontSize: 'clamp(1rem, 2.5vw, 1.25rem)', opacity: 0.8, marginBottom: '4rem', fontWeight: 500, maxWidth: '700px', margin: '0 auto 4rem' }}
                 >
                     {legacyCTA.subtitle}
                 </motion.p>
@@ -73,13 +73,14 @@ export default function LegacyCTA() {
                     transition={{ delay: 0.6 }}
                     style={{ display: 'flex', gap: '1.5rem', justifyContent: 'center', flexWrap: 'wrap' }}
                 >
-                    <button className="btn btn-primary" style={{ padding: '1.5rem 4rem', fontSize: '1.2rem' }}>Get Started Now</button>
+                    <button className="btn btn-primary" style={{ padding: '1.25rem 2.5rem', fontSize: '1.1rem', width: 'clamp(200px, 100%, 300px)' }}>Get Started Now</button>
                     <button className="btn" style={{
                         border: '2px solid white',
                         background: 'transparent',
                         color: 'white',
-                        padding: '1.5rem 4rem',
-                        fontSize: '1.2rem'
+                        padding: '1.25rem 2.5rem',
+                        fontSize: '1.1rem',
+                        width: 'clamp(200px, 100%, 300px)'
                     }}>
                         Live Chat
                     </button>

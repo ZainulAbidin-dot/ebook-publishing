@@ -11,7 +11,7 @@ export default function ProcessSteps() {
             backgroundColor: 'var(--primary)',
             position: 'relative',
             overflow: 'hidden',
-            padding: '10rem 0'
+            padding: 'var(--section-padding) 0'
         }}>
             <Image
                 src={ProcessBg}
@@ -37,15 +37,15 @@ export default function ProcessSteps() {
                     className="section-title"
                     style={{
                         maxWidth: '900px',
-                        margin: '0 auto 6rem',
+                        margin: '0 auto clamp(3rem, 8vw, 6rem)',
                         fontFamily: 'var(--font-serif)',
                         color: 'white',
-                        fontSize: '2rem'
+                        fontSize: 'clamp(2rem, 5vw, 3rem)'
                     }}
                 >
                     {process.title}
                 </motion.h2>
-                <div className="grid grid-cols-2" style={{ gap: '3rem' }}>
+                <div className="grid" style={{ gap: '2rem', gridTemplateColumns: 'repeat(auto-fit, minmax(clamp(300px, 100%, 1fr), 1fr))' }}>
                     {process.steps.map((step, idx) => (
                         <motion.div
                             key={idx}
@@ -56,9 +56,10 @@ export default function ProcessSteps() {
                             className="glass"
                             style={{
                                 display: 'flex',
-                                gap: '2.5rem',
+                                flexWrap: 'wrap',
+                                gap: '2rem',
                                 alignItems: 'flex-start',
-                                padding: '3.5rem 3rem',
+                                padding: 'clamp(2rem, 5vw, 3.5rem) clamp(1.5rem, 5vw, 3rem)',
                                 borderRadius: '2rem',
                                 transition: 'all 0.4s ease',
                                 textAlign: 'left',
@@ -68,21 +69,21 @@ export default function ProcessSteps() {
                             }}
                         >
                             <div style={{
-                                fontSize: '4.5rem',
+                                fontSize: 'clamp(3rem, 8vw, 4.5rem)',
                                 fontWeight: 900,
                                 color: 'var(--accent)',
                                 opacity: 0.8,
                                 lineHeight: 1,
-                                minWidth: '100px',
+                                minWidth: '80px',
                                 fontFamily: 'var(--font-serif)',
                                 fontStyle: 'italic'
                             }}>
                                 {step.step.replace('step ', '')}
                             </div>
-                            <div>
+                            <div style={{ flex: '1 1 300px' }}>
                                 <h4 style={{
-                                    fontSize: '1.5rem',
-                                    marginBottom: '1.25rem',
+                                    fontSize: 'clamp(1.25rem, 3vw, 1.5rem)',
+                                    marginBottom: '1rem',
                                     color: 'var(--accent)',
                                     fontWeight: 800,
                                     fontFamily: 'var(--font-serif)'

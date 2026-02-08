@@ -12,7 +12,7 @@ export default function ContactHero() {
             display: 'flex',
             alignItems: 'center',
             position: 'relative',
-            padding: '10rem 0 6rem',
+            padding: 'var(--section-padding) 0',
             textAlign: 'center',
             overflow: 'hidden',
             color: 'white'
@@ -109,7 +109,7 @@ export default function ContactHero() {
                         transition={{ delay: 0.3, duration: 0.8 }}
                         className="hero-title"
                         style={{
-                            fontSize: 'clamp(2.5rem, 8vw, 3rem)',
+                            fontSize: 'clamp(2.5rem, 8vw, 5rem)',
                             fontWeight: 900,
                             lineHeight: 1.1,
                             marginBottom: '2rem',
@@ -125,7 +125,7 @@ export default function ContactHero() {
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ delay: 0.5, duration: 0.8 }}
                         style={{
-                            fontSize: '1.2rem',
+                            fontSize: 'clamp(1rem, 2.5vw, 1.25rem)',
                             color: 'rgba(255, 255, 255, 0.9)',
                             maxWidth: '850px',
                             margin: '0 auto',

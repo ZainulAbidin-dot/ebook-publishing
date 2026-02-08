@@ -5,7 +5,7 @@ import data from '../src/data/site-content.json';
 export default function BookTypes() {
     const { bookTypes } = data.pages.home;
     return (
-        <section className="section pb-5" style={{ backgroundColor: 'var(--bg-main)' }}>
+        <section className="section" style={{ backgroundColor: 'var(--bg-main)', padding: 'var(--section-padding) 0' }}>
             <div className="container">
                 <motion.h3
                     initial={{ opacity: 0, y: 20 }}
@@ -13,8 +13,8 @@ export default function BookTypes() {
                     viewport={{ once: true }}
                     style={{
                         textAlign: 'center',
-                        marginBottom: '4rem',
-                        fontSize: '2.5rem',
+                        marginBottom: 'clamp(2.5rem, 6vw, 4rem)',
+                        fontSize: 'clamp(2rem, 5vw, 3rem)',
                         fontFamily: 'var(--font-serif)',
                         color: 'var(--primary)',
                         fontWeight: 800
@@ -47,7 +47,7 @@ export default function BookTypes() {
                             <h4 style={{
                                 color: 'var(--primary)',
                                 marginBottom: '1.25rem',
-                                fontSize: '1.5rem',
+                                fontSize: 'clamp(1.25rem, 3vw, 1.5rem)',
                                 fontWeight: 800,
                                 fontFamily: 'var(--font-serif)'
                             }}>

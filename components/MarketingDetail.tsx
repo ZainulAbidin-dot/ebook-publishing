@@ -10,10 +10,10 @@ export default function MarketingDetail() {
         <section className="section" style={{
             backgroundColor: 'var(--bg-main)',
             overflow: 'hidden',
-            padding: '10rem 0'
+            padding: 'var(--section-padding) 0'
         }}>
             <div className="container">
-                <div className="grid grid-2" style={{ alignItems: 'center', gap: '6rem' }}>
+                <div className="grid grid-2" style={{ alignItems: 'center', gap: 'clamp(3rem, 8vw, 6rem)' }}>
                     <motion.div
                         initial={{ opacity: 0, x: -50 }}
                         whileInView={{ opacity: 1, x: 0 }}
@@ -28,7 +28,7 @@ export default function MarketingDetail() {
                                 marginBottom: '2rem',
                                 fontFamily: 'var(--font-serif)',
                                 color: 'var(--primary)',
-                                fontSize: '2.75rem',
+                                fontSize: 'clamp(2rem, 5vw, 3rem)',
                                 lineHeight: 1.2
                             }}
                         >
@@ -42,7 +42,7 @@ export default function MarketingDetail() {
                         }}>
                             {marketingDetail.description}
                         </p>
-                        <div className="grid grid-cols-2" style={{ gap: '1.25rem' }}>
+                        <div className="grid" style={{ gap: '1.25rem', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))' }}>
                             {marketingDetail.features.map((feature, idx) => (
                                 <motion.div
                                     key={idx}
@@ -77,9 +77,9 @@ export default function MarketingDetail() {
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true }}
                             transition={{ delay: 1 }}
-                            style={{ marginTop: '4rem' }}
+                            style={{ marginTop: 'clamp(2rem, 5vw, 4rem)' }}
                         >
-                            <button className="btn btn-primary" style={{ padding: '1.25rem 3rem', fontSize: '1.1rem' }}>
+                            <button className="btn btn-primary" style={{ padding: '1.25rem 3rem', fontSize: '1.1rem', width: 'clamp(200px, 100%, 300px)' }}>
                                 Start Marketing Now
                             </button>
                         </motion.div>
@@ -90,7 +90,7 @@ export default function MarketingDetail() {
                         whileInView={{ opacity: 1, scale: 1 }}
                         viewport={{ once: true }}
                         transition={{ duration: 0.8 }}
-                        style={{ position: 'relative' }}
+                        style={{ position: 'relative', width: '100%' }}
                     >
                         {/* Decorative background element */}
                         <div style={{
@@ -98,8 +98,8 @@ export default function MarketingDetail() {
                             top: '50%',
                             left: '50%',
                             transform: 'translate(-50%, -50%)',
-                            width: '400px',
-                            height: '400px',
+                            width: 'clamp(200px, 80%, 400px)',
+                            height: 'clamp(200px, 80%, 400px)',
                             background: 'radial-gradient(circle, rgba(245, 158, 11, 0.1) 0%, rgba(245, 158, 11, 0) 70%)',
                             zIndex: 0,
                             borderRadius: '50%'
@@ -108,7 +108,7 @@ export default function MarketingDetail() {
                         <motion.div
                             animate={{ y: [0, -20, 0] }}
                             transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
-                            style={{ position: 'relative', zIndex: 1 }}
+                            style={{ position: 'relative', zIndex: 1, width: '100%', maxWidth: '600px', margin: '0 auto' }}
                         >
                             <Image
                                 src={MarketingImg}
@@ -116,6 +116,8 @@ export default function MarketingDetail() {
                                 width={600}
                                 height={700}
                                 style={{
+                                    width: '100%',
+                                    height: 'auto',
                                     objectFit: 'contain',
                                     filter: 'drop-shadow(0 30px 60px rgba(0,0,0,0.12))',
                                     borderRadius: '1.5rem'

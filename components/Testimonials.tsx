@@ -35,15 +35,15 @@ export default function Testimonials() {
     }, [maxIndex]);
 
     return (
-        <section className="section" style={{ backgroundColor: 'var(--bg-secondary)', overflow: 'hidden', padding: '8rem 0' }}>
+        <section className="section" style={{ backgroundColor: 'var(--bg-secondary)', overflow: 'hidden', padding: 'var(--section-padding) 0' }}>
             <div className="container">
-                <div style={{ textAlign: 'center', marginBottom: '5rem' }}>
+                <div style={{ textAlign: 'center', marginBottom: 'clamp(3rem, 6vw, 5rem)' }}>
                     <motion.h2
                         initial={{ opacity: 0, y: 20 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
                         className="section-title"
-                        style={{ marginBottom: '1.5rem', fontFamily: 'var(--font-serif)', color: 'var(--primary)', fontSize: '2.5rem' }}
+                        style={{ marginBottom: '1.5rem', fontFamily: 'var(--font-serif)', color: 'var(--primary)', fontSize: 'clamp(2.5rem, 5vw, 3.5rem)' }}
                     >
                         {testimonials.title}
                     </motion.h2>
@@ -52,17 +52,17 @@ export default function Testimonials() {
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
                         transition={{ delay: 0.2 }}
-                        style={{ color: 'var(--text-muted)', maxWidth: '800px', margin: '0 auto', fontSize: '1.1rem' }}
+                        style={{ color: 'var(--text-muted)', maxWidth: '800px', margin: '0 auto', fontSize: 'clamp(1rem, 2.5vw, 1.1rem)', padding: '0 1rem' }}
                     >
                         {testimonials.description}
                     </motion.p>
                 </div>
 
-                <div style={{ position: 'relative', padding: '0 40px' }}>
-                    <div style={{ overflow: 'hidden' }}>
+                <div style={{ position: 'relative', padding: '0 clamp(0px, 5vw, 40px)' }}>
+                    <div style={{ overflow: 'hidden', borderRadius: '2rem' }}>
                         <motion.div
                             animate={{ x: `-${currentIndex * (100 / visibleItems)}%` }}
-                            transition={{ type: "spring", stiffness: 200, damping: 25 }}
+                            transition={{ type: "spring", stiffness: 200, damping: 30 }}
                             style={{
                                 display: 'flex',
                                 width: '100%'
@@ -73,7 +73,7 @@ export default function Testimonials() {
                                     key={idx}
                                     style={{
                                         minWidth: `${100 / visibleItems}%`,
-                                        padding: '0 20px',
+                                        padding: '0 clamp(0.5rem, 2vw, 1.25rem)',
                                         boxSizing: 'border-box'
                                     }}
                                 >
@@ -82,19 +82,19 @@ export default function Testimonials() {
                                         flexDirection: 'column',
                                         gap: '2rem',
                                         border: '1px solid var(--border)',
-                                        padding: '3rem 2.5rem',
+                                        padding: 'clamp(2rem, 5vw, 3rem) clamp(1.5rem, 5vw, 2.5rem)',
                                         boxShadow: '0 10px 40px rgba(0,0,0,0.04)',
                                         height: '100%',
                                         backgroundColor: 'white',
-                                        borderRadius: '1.5rem',
+                                        borderRadius: '2rem',
                                         position: 'relative'
                                     }}>
                                         <div style={{
                                             position: 'absolute',
-                                            top: '2rem',
-                                            right: '2.5rem',
+                                            top: '1.5rem',
+                                            right: '2rem',
                                             color: 'var(--accent)',
-                                            fontSize: '4rem',
+                                            fontSize: '3rem',
                                             lineHeight: 1,
                                             opacity: 0.2,
                                             fontFamily: 'var(--font-serif)'
@@ -109,7 +109,7 @@ export default function Testimonials() {
                                         </div>
 
                                         <p style={{
-                                            fontSize: '1.1rem',
+                                            fontSize: 'clamp(1rem, 2.5vw, 1.1rem)',
                                             color: 'var(--text-main)',
                                             lineHeight: 1.8,
                                             flex: 1,
