@@ -1,38 +1,35 @@
 "use client";
 import { motion } from 'framer-motion';
 import data from '../src/data/site-content.json';
+import Image from 'next/image';
+import CTABg from '../assets/cta-bg.webp';
 
 export default function LegacyCTA() {
     const { legacyCTA } = data.pages.home;
     return (
         <section className="section" style={{
-            background: 'linear-gradient(135deg, #1a1a1a 0%, #333 100%)',
             color: 'white',
             textAlign: 'center',
-            padding: '8rem 0',
+            padding: '10rem 0',
             overflow: 'hidden',
-            position: 'relative'
+            position: 'relative',
+            backgroundColor: '#1a1801' // Fallback dark color
         }}>
-            {/* Ambient Light Effect */}
-            <motion.div
-                animate={{
-                    opacity: [0.3, 0.5, 0.3],
-                    scale: [1, 1.2, 1]
-                }}
-                transition={{ duration: 5, repeat: Infinity }}
-                style={{
-                    position: 'absolute',
-                    top: '50%',
-                    left: '50%',
-                    transform: 'translate(-50%, -50%)',
-                    width: '600px',
-                    height: '600px',
-                    background: 'radial-gradient(circle, var(--accent) 0%, transparent 70%)',
-                    filter: 'blur(100px)',
-                    zIndex: 0,
-                    pointerEvents: 'none'
-                }}
+            <Image
+                src={CTABg}
+                alt="Call to Action Background"
+                fill
+                style={{ objectFit: 'cover' }}
             />
+            <div style={{
+                position: 'absolute',
+                top: 0,
+                left: 0,
+                right: 0,
+                bottom: 0,
+                background: 'rgba(0, 0, 0, 0.4)', // Dark overlay
+                zIndex: 0
+            }} />
 
             <div className="container" style={{ position: 'relative', zIndex: 1 }}>
                 <motion.span

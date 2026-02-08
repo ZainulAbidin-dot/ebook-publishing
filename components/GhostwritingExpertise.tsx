@@ -3,18 +3,57 @@ import { motion } from 'framer-motion';
 import Image from 'next/image';
 import data from '../src/data/site-content.json';
 import PursuitImg from '../assets/expertise.png';
+import Pattern from '../assets/pattern-2.webp';
+import BgImage from '../assets/pursuit-img.webp';
 
 export default function GhostwritingExpertise() {
     const { ghostwritingExpertise } = data.pages.home;
     return (
-        <section className="section" style={{ backgroundColor: 'var(--bg-main)' }}>
-            <div className="container">
+        <section className="section" style={{
+            backgroundColor: 'var(--bg-main)',
+            position: 'relative',
+            overflow: 'hidden',
+            padding: '5rem 0'
+        }}>
+            {/* Background Pattern */}
+            <div style={{
+                position: 'absolute',
+                top: 0,
+                left: 0,
+                right: 0,
+                bottom: 0,
+                backgroundImage: `url(${Pattern.src})`,
+                backgroundSize: '400px',
+                opacity: 0.05,
+                zIndex: 0
+            }} />
+
+            {/* Background Image Accent */}
+            <div style={{
+                position: 'absolute',
+                bottom: '-10%',
+                right: '-5%',
+                width: '600px',
+                height: '600px',
+                opacity: 0.1,
+                zIndex: 0,
+                filter: 'grayscale(100%)'
+            }}>
+                <Image
+                    src={BgImage}
+                    alt="Background Accent"
+                    fill
+                    style={{ objectFit: 'contain' }}
+                />
+            </div>
+
+            <div className="container" style={{ position: 'relative', zIndex: 1 }}>
                 <div style={{ textAlign: 'center', marginBottom: '4rem' }}>
                     <motion.h2
                         initial={{ opacity: 0, scale: 0.95 }}
                         whileInView={{ opacity: 1, scale: 1 }}
                         viewport={{ once: true }}
-                        style={{ fontSize: '2rem', marginBottom: '1.5rem', maxWidth: '1600px', margin: '0 auto 1.5rem' }}
+                        style={{ fontSize: '2.5rem', marginBottom: '1.5rem', maxWidth: '1000px', margin: '0 auto 1.5rem', fontFamily: 'var(--font-serif)', color: 'var(--primary)' }}
                     >
                         {ghostwritingExpertise.title}
                     </motion.h2>
@@ -23,7 +62,7 @@ export default function GhostwritingExpertise() {
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
                         transition={{ delay: 0.2 }}
-                        style={{ color: 'var(--text-muted)', maxWidth: '900px', margin: '0 auto 3rem' }}
+                        style={{ color: 'var(--text-muted)', maxWidth: '900px', margin: '0 auto 3rem', fontSize: '1.1rem' }}
                     >
                         {ghostwritingExpertise.subtitle}
                     </motion.p>
@@ -38,16 +77,16 @@ export default function GhostwritingExpertise() {
                         {ghostwritingExpertise.genres.map((genre, idx) => (
                             <motion.span
                                 key={idx}
-                                whileHover={{ scale: 1.1, backgroundColor: 'var(--accent)', color: 'white' }}
+                                whileHover={{ scale: 1.1, backgroundColor: 'var(--primary)', color: 'white' }}
                                 style={{
-                                    padding: '0.5rem 1.5rem',
-                                    border: '1px solid var(--accent)',
+                                    padding: '0.6rem 1.8rem',
+                                    border: '1px solid var(--primary)',
                                     borderRadius: '2rem',
-                                    color: 'var(--accent)',
+                                    color: 'var(--primary)',
                                     fontWeight: 600,
                                     fontSize: '0.9rem',
                                     cursor: 'default',
-                                    transition: 'color 0.2s, background-color 0.2s'
+                                    transition: 'all 0.2s cubic-bezier(0.4, 0, 0.2, 1)'
                                 }}
                             >
                                 {genre}
@@ -61,14 +100,22 @@ export default function GhostwritingExpertise() {
                         initial={{ opacity: 0, x: -50 }}
                         whileInView={{ opacity: 1, x: 0 }}
                         viewport={{ once: true }}
-                        style={{ position: 'relative', height: '400px', borderRadius: '2rem', display: 'flex', alignItems: 'center', justifyContent: 'center', overflow: 'hidden' }}
+                        style={{ position: 'relative', display: 'flex', alignItems: 'center', justifyContent: 'center' }}
                     >
                         <motion.div
-                            animate={{ y: [0, -10, 0] }}
-                            transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
-                            style={{ fontSize: '4rem', marginBottom: '1rem' }}
+                            animate={{ rotate: [0, 2, 0, -2, 0] }}
+                            transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
                         >
-                            <Image src={PursuitImg} alt="Expertise Image" width={600} height={600} style={{ objectFit: 'cover' }} />
+                            <Image
+                                src={PursuitImg}
+                                alt="Expertise Image"
+                                width={550}
+                                height={550}
+                                style={{
+                                    objectFit: 'contain',
+                                    filter: 'drop-shadow(0 20px 40px rgba(0,0,0,0.15))'
+                                }}
+                            />
                         </motion.div>
                     </motion.div>
                     <motion.div
@@ -76,9 +123,13 @@ export default function GhostwritingExpertise() {
                         whileInView={{ opacity: 1, x: 0 }}
                         viewport={{ once: true }}
                     >
-                        <h3 style={{ fontSize: '2rem', marginBottom: '1.5rem' }}>{ghostwritingExpertise.professionalLeague.title}</h3>
-                        <p style={{ color: 'var(--text-muted)', marginBottom: '2rem' }}>{ghostwritingExpertise.professionalLeague.description}</p>
-                        <ul style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
+                        <h3 style={{ fontSize: '2.25rem', marginBottom: '1.5rem', fontFamily: 'var(--font-serif)', color: 'var(--primary)' }}>
+                            {ghostwritingExpertise.professionalLeague.title}
+                        </h3>
+                        <p style={{ color: 'var(--text-muted)', marginBottom: '2rem', fontSize: '1.1rem', lineHeight: 1.7 }}>
+                            {ghostwritingExpertise.professionalLeague.description}
+                        </p>
+                        <ul style={{ display: 'flex', flexDirection: 'column', gap: '1.25rem' }}>
                             {ghostwritingExpertise.professionalLeague.points.map((point, idx) => (
                                 <motion.li
                                     key={idx}
@@ -86,13 +137,24 @@ export default function GhostwritingExpertise() {
                                     whileInView={{ opacity: 1, x: 0 }}
                                     viewport={{ once: true }}
                                     transition={{ delay: 0.5 + idx * 0.1 }}
-                                    style={{ display: 'flex', gap: '0.75rem', alignItems: 'center' }}
+                                    style={{ display: 'flex', gap: '1rem', alignItems: 'center' }}
                                 >
-                                    <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                        <circle cx="10" cy="10" r="10" fill="var(--accent)" fillOpacity="0.1" />
-                                        <path d="M6 10L9 13L14 8" stroke="var(--accent)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-                                    </svg>
-                                    <span style={{ fontWeight: 500 }}>{point}</span>
+                                    <div style={{
+                                        width: '24px',
+                                        height: '24px',
+                                        backgroundColor: 'var(--accent)',
+                                        borderRadius: '50%',
+                                        display: 'flex',
+                                        alignItems: 'center',
+                                        justifyContent: 'center',
+                                        color: 'var(--primary)',
+                                        flexShrink: 0
+                                    }}>
+                                        <svg width="14" height="14" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M6 10L9 13L14 8" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" />
+                                        </svg>
+                                    </div>
+                                    <span style={{ fontWeight: 600, fontSize: '1.05rem', color: 'var(--text-main)' }}>{point}</span>
                                 </motion.li>
                             ))}
                         </ul>

@@ -30,20 +30,20 @@ export default function Testimonials() {
     };
 
     useEffect(() => {
-        const timer = setInterval(nextStep, 5000);
+        const timer = setInterval(nextStep, 6000);
         return () => clearInterval(timer);
     }, [maxIndex]);
 
     return (
-        <section className="section" style={{ backgroundColor: 'var(--bg-secondary)', overflow: 'hidden', padding: '6rem 0' }}>
+        <section className="section" style={{ backgroundColor: 'var(--bg-secondary)', overflow: 'hidden', padding: '8rem 0' }}>
             <div className="container">
-                <div style={{ textAlign: 'center', marginBottom: '4rem' }}>
+                <div style={{ textAlign: 'center', marginBottom: '5rem' }}>
                     <motion.h2
                         initial={{ opacity: 0, y: 20 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
                         className="section-title"
-                        style={{ marginBottom: '1rem' }}
+                        style={{ marginBottom: '1.5rem', fontFamily: 'var(--font-serif)', color: 'var(--primary)', fontSize: '2.5rem' }}
                     >
                         {testimonials.title}
                     </motion.h2>
@@ -52,17 +52,17 @@ export default function Testimonials() {
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
                         transition={{ delay: 0.2 }}
-                        style={{ color: 'var(--text-muted)', maxWidth: '700px', margin: '0 auto' }}
+                        style={{ color: 'var(--text-muted)', maxWidth: '800px', margin: '0 auto', fontSize: '1.1rem' }}
                     >
                         {testimonials.description}
                     </motion.p>
                 </div>
 
-                <div style={{ position: 'relative', padding: '0 60px' }}>
+                <div style={{ position: 'relative', padding: '0 40px' }}>
                     <div style={{ overflow: 'hidden' }}>
                         <motion.div
                             animate={{ x: `-${currentIndex * (100 / visibleItems)}%` }}
-                            transition={{ type: "spring", stiffness: 300, damping: 30 }}
+                            transition={{ type: "spring", stiffness: 200, damping: 25 }}
                             style={{
                                 display: 'flex',
                                 width: '100%'
@@ -73,31 +73,59 @@ export default function Testimonials() {
                                     key={idx}
                                     style={{
                                         minWidth: `${100 / visibleItems}%`,
-                                        padding: '0 15px',
+                                        padding: '0 20px',
                                         boxSizing: 'border-box'
                                     }}
                                 >
                                     <div className="card" style={{
                                         display: 'flex',
                                         flexDirection: 'column',
-                                        gap: '1.5rem',
+                                        gap: '2rem',
                                         border: '1px solid var(--border)',
-                                        padding: '2rem',
-                                        boxShadow: 'var(--shadow-md)',
+                                        padding: '3rem 2.5rem',
+                                        boxShadow: '0 10px 40px rgba(0,0,0,0.04)',
                                         height: '100%',
-                                        backgroundColor: 'var(--bg-main)'
+                                        backgroundColor: 'white',
+                                        borderRadius: '1.5rem',
+                                        position: 'relative'
                                     }}>
-                                        <div style={{ color: 'var(--accent)', fontSize: '2.5rem', lineHeight: 1 }}>“</div>
+                                        <div style={{
+                                            position: 'absolute',
+                                            top: '2rem',
+                                            right: '2.5rem',
+                                            color: 'var(--accent)',
+                                            fontSize: '4rem',
+                                            lineHeight: 1,
+                                            opacity: 0.2,
+                                            fontFamily: 'var(--font-serif)'
+                                        }}>“</div>
+
+                                        <div style={{ display: 'flex', gap: '4px', marginBottom: '-0.5rem' }}>
+                                            {[1, 2, 3, 4, 5].map((s) => (
+                                                <svg key={s} width="16" height="16" viewBox="0 0 20 20" fill="var(--accent)">
+                                                    <path d="M10 1L13 7L19 8L15 13L16 19L10 16L4 19L5 13L1 8L7 7L10 1z" />
+                                                </svg>
+                                            ))}
+                                        </div>
+
                                         <p style={{
-                                            fontSize: '1rem',
-                                            fontStyle: 'italic',
+                                            fontSize: '1.1rem',
                                             color: 'var(--text-main)',
-                                            lineHeight: 1.6,
-                                            flex: 1
+                                            lineHeight: 1.8,
+                                            flex: 1,
+                                            fontWeight: 500
                                         }}>
                                             {review.text}
                                         </p>
-                                        <div style={{ borderTop: '1px solid var(--border)', paddingTop: '1rem', fontWeight: 800, fontSize: '0.9rem', color: 'var(--accent)' }}>
+                                        <div style={{
+                                            borderTop: '1px solid var(--border)',
+                                            paddingTop: '1.5rem',
+                                            fontWeight: 800,
+                                            fontSize: '1rem',
+                                            color: 'var(--primary)',
+                                            fontFamily: 'var(--font-serif)',
+                                            letterSpacing: '0.5px'
+                                        }}>
                                             — {review.name}
                                         </div>
                                     </div>
@@ -111,22 +139,23 @@ export default function Testimonials() {
                         onClick={prevStep}
                         style={{
                             position: 'absolute',
-                            left: '0',
+                            left: '-10px',
                             top: '50%',
                             transform: 'translateY(-50%)',
                             zIndex: 10,
                             background: 'white',
                             border: '1px solid var(--border)',
                             borderRadius: '50%',
-                            width: '44px',
-                            height: '44px',
+                            width: '52px',
+                            height: '52px',
                             display: 'flex',
                             alignItems: 'center',
                             justifyContent: 'center',
                             cursor: 'pointer',
-                            boxShadow: 'var(--shadow-md)',
-                            color: 'var(--accent)',
-                            fontSize: '1.2rem'
+                            boxShadow: '0 4px 15px rgba(0,0,0,0.1)',
+                            color: 'var(--primary)',
+                            fontSize: '1.4rem',
+                            transition: 'all 0.2s ease'
                         }}
                     >
                         ←
@@ -135,22 +164,23 @@ export default function Testimonials() {
                         onClick={nextStep}
                         style={{
                             position: 'absolute',
-                            right: '0',
+                            right: '-10px',
                             top: '50%',
                             transform: 'translateY(-50%)',
                             zIndex: 10,
                             background: 'white',
                             border: '1px solid var(--border)',
                             borderRadius: '50%',
-                            width: '44px',
-                            height: '44px',
+                            width: '52px',
+                            height: '52px',
                             display: 'flex',
                             alignItems: 'center',
                             justifyContent: 'center',
                             cursor: 'pointer',
-                            boxShadow: 'var(--shadow-md)',
-                            color: 'var(--accent)',
-                            fontSize: '1.2rem'
+                            boxShadow: '0 4px 15px rgba(0,0,0,0.1)',
+                            color: 'var(--primary)',
+                            fontSize: '1.4rem',
+                            transition: 'all 0.2s ease'
                         }}
                     >
                         →
@@ -158,15 +188,15 @@ export default function Testimonials() {
                 </div>
 
                 {/* Dots Navigation */}
-                <div style={{ display: 'flex', justifyContent: 'center', gap: '8px', marginTop: '2.5rem' }}>
+                <div style={{ display: 'flex', justifyContent: 'center', gap: '10px', marginTop: '4rem' }}>
                     {Array.from({ length: maxIndex + 1 }).map((_, idx) => (
                         <button
                             key={idx}
                             onClick={() => setCurrentIndex(idx)}
                             style={{
-                                width: currentIndex === idx ? '24px' : '8px',
-                                height: '8px',
-                                borderRadius: '4px',
+                                width: currentIndex === idx ? '32px' : '10px',
+                                height: '10px',
+                                borderRadius: '5px',
                                 border: 'none',
                                 background: currentIndex === idx ? 'var(--accent)' : 'var(--border)',
                                 cursor: 'pointer',

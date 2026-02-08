@@ -29,58 +29,58 @@
             "path": "/about-us"
         },
         {
-            "name": "Genre",
-            "path": "/genre"
+            "name": "Case Studies",
+            "path": "/case-studies"
         },
         {
             "name": "Services",
             "path": "/services",
             "subItems": [
                 {
-                    "name": "eBook Writing",
-                    "path": "/ebook-writing"
+                    "name": "Ghostwriting",
+                    "path": "/services/ghostwriting"
                 },
                 {
-                    "name": "Proofreading Services",
-                    "path": "/proofreading-services"
+                    "name": "Editing",
+                    "path": "/services/editing"
                 },
                 {
-                    "name": "Book Editing",
-                    "path": "/professional-book-editing-services"
-                },
-                {
-                    "name": "Book Formatting",
-                    "path": "/book-formatting"
-                },
-                {
-                    "name": "Video Trailer",
-                    "path": "/book-video-trailer"
-                },
-                {
-                    "name": "Audio Book",
-                    "path": "/audio-book"
-                },
-                {
-                    "name": "Book Cover Designing",
-                    "path": "/book-cover-design-services"
-                },
-                {
-                    "name": "Author's Website",
-                    "path": "/author-website"
+                    "name": "Formatting",
+                    "path": "/services/formatting"
                 },
                 {
                     "name": "Book Publishing",
-                    "path": "/book-publishing-services"
+                    "path": "/services/book-publishing"
+                },
+                {
+                    "name": "Children's Book",
+                    "path": "/services/childrens-book"
                 },
                 {
                     "name": "Book Marketing",
-                    "path": "/ebook-marketing-services"
+                    "path": "/services/book-marketing"
+                },
+                {
+                    "name": "Proofreading",
+                    "path": "/services/proofreading"
+                },
+                {
+                    "name": "Book Cover Design",
+                    "path": "/services/book-cover-design"
+                },
+                {
+                    "name": "Book Printing",
+                    "path": "/services/book-printing"
                 }
             ]
         },
         {
             "name": "Contact Us",
             "path": "/contact-us"
+        },
+        {
+            "name": "Testimonials",
+            "path": "/testimonials"
         }
     ],
     "pages": {
@@ -115,44 +115,40 @@
                 "description": "Over here you can find the litany of books that have been published successfully by us. This work would not have been possible without our professional ghostwriting",
                 "items": [
                     {
-                        "title": "eBook Writing",
-                        "description": "Professional eBook writing services."
+                        "title": "Ghostwriting",
+                        "description": "Collaborate with industry-leading experts to bring your vision to life through professionally written manuscripts."
                     },
                     {
-                        "title": "Proofreading Services",
-                        "description": "Expert proofreading for your manuscript."
+                        "title": "Editing",
+                        "description": "Comprehensive manuscript evaluation and editing to enhance clarity, coherence, and impact."
                     },
                     {
-                        "title": "Book Editing",
-                        "description": "High-quality book editing services."
-                    },
-                    {
-                        "title": "Book Formatting",
-                        "description": "Professional formatting for all platforms."
-                    },
-                    {
-                        "title": "Video Trailer",
-                        "description": "Engaging video trailers for your book."
-                    },
-                    {
-                        "title": "Audio Book",
-                        "description": "Professional audio book production."
-                    },
-                    {
-                        "title": "Book Cover Designing",
-                        "description": "Eye-catching cover designs."
-                    },
-                    {
-                        "title": "Author's Website",
-                        "description": "Custom websites for authors."
+                        "title": "Formatting",
+                        "description": "Expert book formatting for both print and digital platforms, ensuring a professional reading experience."
                     },
                     {
                         "title": "Book Publishing",
-                        "description": "Seamless book publishing process."
+                        "description": "A seamless journey from manuscript to global marketplaces with our end-to-end publishing solutions."
+                    },
+                    {
+                        "title": "Children's Book",
+                        "description": "Specialized services for children's literature, including captivating storytelling and vibrant illustrations."
                     },
                     {
                         "title": "Book Marketing",
-                        "description": "Effective book marketing strategies."
+                        "description": "Strategic marketing plans designed to build buzz and drive sales through multi-channel promotion."
+                    },
+                    {
+                        "title": "Proofreading",
+                        "description": "Meticulous proofreading to catch every error and ensure your book is polished to perfection."
+                    },
+                    {
+                        "title": "Book Cover Design",
+                        "description": "Visually striking cover designs that capture the essence of your story and command attention."
+                    },
+                    {
+                        "title": "Book Printing",
+                        "description": "Flexible and high-quality printing options, from on-demand to bulk orders, delivered worldwide."
                     }
                 ]
             },
@@ -276,6 +272,48 @@
                 "limited": "Limited Slots!",
                 "title": "WRITE YOUR LEGACY",
                 "subtitle": "DON'T MISS THIS ONCE IN A LIFETIME OFFER!"
+            },
+            "caseStudies": {
+                "title": "Success Stories That Define Excellence",
+                "description": "Explore our portfolio of published works! From unforgettable novels to groundbreaking business guides, our work speaks for our commitment to quality.",
+                "items": [
+                    {
+                        "title": "Business Excellence",
+                        "author": "James Anderson",
+                        "description": "Book Prime Publishing turned my rough draft into a polished masterpiece. The editing team was incredibly detailed, and the cover design perfectly captured the essence of my business book.",
+                        "services": [
+                            "Editing",
+                            "Cover Design"
+                        ]
+                    },
+                    {
+                        "title": "Holding the Dream",
+                        "author": "Sarah Mitchell",
+                        "description": "They handled everything from formatting to distribution with such professionalism. Holding my printed novel for the first time was a dream come true, thanks to them.",
+                        "services": [
+                            "Formatting",
+                            "Distribution"
+                        ]
+                    },
+                    {
+                        "title": "The Strategic Growth",
+                        "author": "Daniel Carter",
+                        "description": "The marketing strategies suggested were a game-changer. Not only did they help me publish, but they also guided me on how to reach the right audience.",
+                        "services": [
+                            "Marketing Strategy",
+                            "Consultation"
+                        ]
+                    },
+                    {
+                        "title": "The Manuscript Journey",
+                        "author": "Emily Roberts",
+                        "description": "I was amazed at how quickly they turned my manuscript into a live book available worldwide. The communication was prompt, and they met every deadline.",
+                        "services": [
+                            "Manuscript Polish",
+                            "Global Reach"
+                        ]
+                    }
+                ]
             }
         },
         "about": {
