@@ -4,11 +4,11 @@ import { motion } from 'framer-motion';
 import Image from 'next/image';
 import BgImage from '../../../assets/marketing.png';
 import Pattern from '../../../assets/pattern-2.webp';
+import HeroForm from '../../../components/HeroForm';
 
 export default function BookMarketingPage() {
     const serviceTitle = "Marketing That Turns Pages & Profits";
-    const serviceSubtitle = "Let's Take Your Story to the Top";
-    const serviceDescription = "Our strategic marketing services help your book reach its target audience, ensuring it gets the recognition it deserves. From social media promotion to book fairs, we develop customized marketing campaigns that drive sales and build your author brand.";
+    const serviceSubtitle = "Let's Take Your Story to the Top with our strategic marketing services that help your book reach its target audience, ensuring it gets the recognition it deserves.";
 
     const marketingServices = [
         { title: "Custom Marketing Strategies", description: "Personalized marketing plans tailored to your book's genre, target audience, and unique selling points." },
@@ -37,25 +37,70 @@ export default function BookMarketingPage() {
     return (
         <main style={{ backgroundColor: 'var(--bg-main)', minHeight: '100vh' }}>
             {/* Hero Section */}
-            <section className="section" style={{ position: 'relative', padding: 'var(--section-padding) 0', overflow: 'hidden', backgroundColor: 'var(--primary)', color: 'white' }}>
+            <section className="section" style={{
+                position: 'relative',
+                padding: 'clamp(5rem, 10vw, 8rem) 0 clamp(4rem, 8vw, 6rem)',
+                overflow: 'hidden',
+                backgroundColor: 'var(--primary)',
+                color: 'white'
+            }}>
                 <div style={{ position: 'absolute', top: 0, left: 0, right: 0, bottom: 0, zIndex: 0 }}>
                     <Image src={BgImage} alt={serviceTitle} fill style={{ objectFit: 'cover', opacity: 0.1, filter: 'grayscale(100%)' }} priority />
                     <div style={{ position: 'absolute', top: 0, left: 0, right: 0, bottom: 0, backgroundImage: `url(${Pattern.src})`, backgroundSize: '600px', opacity: 0.05 }} />
                 </div>
-                <div className="container" style={{ position: 'relative', zIndex: 1, textAlign: 'center' }}>
-                    <motion.h1 initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} style={{ fontSize: 'clamp(2rem, 6vw, 4rem)', fontFamily: 'var(--font-serif)', marginBottom: '1rem' }}>
-                        {serviceTitle}
-                    </motion.h1>
-                    <motion.p initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.1 }} style={{ fontSize: 'clamp(1.25rem, 3vw, 1.75rem)', color: 'var(--accent)', fontWeight: 600, marginBottom: '1.5rem' }}>
-                        {serviceSubtitle}
-                    </motion.p>
-                    <motion.p initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.2 }} style={{ fontSize: 'clamp(1rem, 2vw, 1.15rem)', maxWidth: '800px', margin: '0 auto', color: 'rgba(255,255,255,0.85)', lineHeight: 1.8 }}>
-                        {serviceDescription}
-                    </motion.p>
-                    <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.3 }} style={{ marginTop: '2.5rem', display: 'flex', gap: '1rem', justifyContent: 'center', flexWrap: 'wrap' }}>
-                        <a href="/contact-us" className="btn btn-primary" style={{ padding: '1rem 2.5rem', fontSize: '1rem' }}>Get Started</a>
-                        <a href="tel:+18001234567" className="btn btn-outline" style={{ padding: '1rem 2.5rem', fontSize: '1rem', borderColor: 'white', color: 'white' }}>Call Now</a>
-                    </motion.div>
+
+                <div className="container" style={{ position: 'relative', zIndex: 1 }}>
+                    <div className="grid grid-2" style={{ alignItems: 'center', gap: '4rem' }}>
+                        {/* Left Column: Content */}
+                        <motion.div
+                            initial={{ opacity: 0, x: -30 }}
+                            animate={{ opacity: 1, x: 0 }}
+                            style={{ textAlign: 'left' }}
+                        >
+                            <motion.h6
+                                initial={{ opacity: 0 }}
+                                animate={{ opacity: 1 }}
+                                style={{
+                                    color: 'var(--accent)',
+                                    fontWeight: 700,
+                                    textTransform: 'uppercase',
+                                    marginBottom: '1rem',
+                                    letterSpacing: '2px',
+                                    fontSize: '0.9rem'
+                                }}
+                            >
+                                Targeted Book Marketing
+                            </motion.h6>
+                            <motion.h1
+                                initial={{ opacity: 0, y: 30 }}
+                                animate={{ opacity: 1, y: 0 }}
+                                style={{
+                                    fontSize: 'clamp(2rem, 5vw, 3rem)',
+                                    fontFamily: 'var(--font-serif)',
+                                    marginBottom: '1.5rem',
+                                    lineHeight: 1.1
+                                }}
+                            >
+                                {serviceTitle}
+                            </motion.h1>
+                            <motion.p
+                                initial={{ opacity: 0, y: 20 }}
+                                animate={{ opacity: 1, y: 0 }}
+                                transition={{ delay: 0.2 }}
+                                style={{
+                                    fontSize: 'clamp(1rem, 1.5vw, 1.25rem)',
+                                    maxWidth: '600px',
+                                    color: 'rgba(255,255,255,0.9)',
+                                    lineHeight: 1.8
+                                }}
+                            >
+                                {serviceSubtitle}
+                            </motion.p>
+                        </motion.div>
+
+                        {/* Right Column: Mini Form */}
+                        <HeroForm defaultService="book-marketing" />
+                    </div>
                 </div>
             </section>
 
@@ -133,3 +178,4 @@ export default function BookMarketingPage() {
         </main>
     );
 }
+

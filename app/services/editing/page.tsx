@@ -4,11 +4,11 @@ import { motion } from 'framer-motion';
 import Image from 'next/image';
 import BgImage from '../../../assets/exceptional-book.webp';
 import Pattern from '../../../assets/pattern-2.webp';
+import HeroForm from '../../../components/HeroForm';
 
 export default function EditingPage() {
     const serviceTitle = "Professional Book Editing";
-    const serviceSubtitle = "Perfect Editing Process from a Company That Strives for the Best";
-    const serviceDescription = "Our editors ensure that all your work is smoothly edited to lead to a better reading experience for your audience. We have a team of hardworking editors who are well trained in bringing perfection to any book.";
+    const serviceSubtitle = "Perfect Editing Process from a Company That Strives for the Best. Our editors ensure that all your work is smoothly edited to lead to a better reading experience.";
 
     const editingServices = [
         { icon: "📐", title: "Substantial Editing", description: "Improve your book's overall structure, organization, and flow for maximum reader engagement." },
@@ -47,25 +47,70 @@ export default function EditingPage() {
     return (
         <main style={{ backgroundColor: 'var(--bg-main)', minHeight: '100vh' }}>
             {/* Hero Section */}
-            <section className="section" style={{ position: 'relative', padding: 'var(--section-padding) 0', overflow: 'hidden', backgroundColor: 'var(--primary)', color: 'white' }}>
+            <section className="section" style={{
+                position: 'relative',
+                padding: 'clamp(5rem, 10vw, 8rem) 0 clamp(4rem, 8vw, 6rem)',
+                overflow: 'hidden',
+                backgroundColor: 'var(--primary)',
+                color: 'white'
+            }}>
                 <div style={{ position: 'absolute', top: 0, left: 0, right: 0, bottom: 0, zIndex: 0 }}>
                     <Image src={BgImage} alt={serviceTitle} fill style={{ objectFit: 'cover', opacity: 0.1, filter: 'grayscale(100%)' }} priority />
                     <div style={{ position: 'absolute', top: 0, left: 0, right: 0, bottom: 0, backgroundImage: `url(${Pattern.src})`, backgroundSize: '600px', opacity: 0.05 }} />
                 </div>
-                <div className="container" style={{ position: 'relative', zIndex: 1, textAlign: 'center' }}>
-                    <motion.h1 initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} style={{ fontSize: 'clamp(2rem, 6vw, 4rem)', fontFamily: 'var(--font-serif)', marginBottom: '1rem' }}>
-                        {serviceTitle}
-                    </motion.h1>
-                    <motion.p initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.1 }} style={{ fontSize: 'clamp(1.1rem, 2.5vw, 1.5rem)', color: 'var(--accent)', fontWeight: 600, marginBottom: '1.5rem' }}>
-                        {serviceSubtitle}
-                    </motion.p>
-                    <motion.p initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.2 }} style={{ fontSize: 'clamp(1rem, 2vw, 1.15rem)', maxWidth: '800px', margin: '0 auto', color: 'rgba(255,255,255,0.85)', lineHeight: 1.8 }}>
-                        {serviceDescription}
-                    </motion.p>
-                    <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.3 }} style={{ marginTop: '2.5rem', display: 'flex', gap: '1rem', justifyContent: 'center', flexWrap: 'wrap' }}>
-                        <a href="/contact-us" className="btn btn-primary" style={{ padding: '1rem 2.5rem', fontSize: '1rem' }}>Get Started</a>
-                        <a href="/contact-us" className="btn btn-outline" style={{ padding: '1rem 2.5rem', fontSize: '1rem', borderColor: 'white', color: 'white' }}>Live Chat</a>
-                    </motion.div>
+
+                <div className="container" style={{ position: 'relative', zIndex: 1 }}>
+                    <div className="grid grid-2" style={{ alignItems: 'center', gap: '4rem' }}>
+                        {/* Left Column: Content */}
+                        <motion.div
+                            initial={{ opacity: 0, x: -30 }}
+                            animate={{ opacity: 1, x: 0 }}
+                            style={{ textAlign: 'left' }}
+                        >
+                            <motion.h6
+                                initial={{ opacity: 0 }}
+                                animate={{ opacity: 1 }}
+                                style={{
+                                    color: 'var(--accent)',
+                                    fontWeight: 700,
+                                    textTransform: 'uppercase',
+                                    marginBottom: '1rem',
+                                    letterSpacing: '2px',
+                                    fontSize: '0.9rem'
+                                }}
+                            >
+                                Professional Book Editing
+                            </motion.h6>
+                            <motion.h1
+                                initial={{ opacity: 0, y: 30 }}
+                                animate={{ opacity: 1, y: 0 }}
+                                style={{
+                                    fontSize: 'clamp(2rem, 5vw, 3rem)',
+                                    fontFamily: 'var(--font-serif)',
+                                    marginBottom: '2rem',
+                                    lineHeight: 1.1
+                                }}
+                            >
+                                {serviceTitle}
+                            </motion.h1>
+                            <motion.p
+                                initial={{ opacity: 0, y: 20 }}
+                                animate={{ opacity: 1, y: 0 }}
+                                transition={{ delay: 0.2 }}
+                                style={{
+                                    fontSize: 'clamp(1rem, 1.5vw, 1.25rem)',
+                                    maxWidth: '600px',
+                                    color: 'rgba(255,255,255,0.9)',
+                                    lineHeight: 1.8
+                                }}
+                            >
+                                {serviceSubtitle}
+                            </motion.p>
+                        </motion.div>
+
+                        {/* Right Column: Mini Form */}
+                        <HeroForm defaultService="book-editing" />
+                    </div>
                 </div>
             </section>
 

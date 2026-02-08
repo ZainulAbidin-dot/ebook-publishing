@@ -6,6 +6,7 @@ import Image from 'next/image';
 import data from '../../src/data/site-content.json';
 import BgImage from '../../assets/process-bg.webp';
 import Pattern from '../../assets/pattern-2.webp';
+import HeroForm from '../../components/HeroForm';
 
 const ServiceIcons: { [key: string]: React.ReactNode } = {
     "Ghostwriting": <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M12 20h9" /><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z" /></svg>,
@@ -27,7 +28,7 @@ export default function ServicesPage() {
             {/* Hero Section */}
             <section className="section" style={{
                 position: 'relative',
-                padding: 'var(--section-padding) 0',
+                padding: 'clamp(5rem, 10vw, 8rem) 0 clamp(4rem, 8vw, 6rem)',
                 overflow: 'hidden',
                 backgroundColor: 'var(--primary)',
                 color: 'white'
@@ -44,7 +45,7 @@ export default function ServicesPage() {
                         src={BgImage}
                         alt="Services Hero"
                         fill
-                        style={{ objectFit: 'cover', opacity: 0.15, filter: 'grayscale(100%)' }}
+                        style={{ objectFit: 'cover', opacity: 0.1, filter: 'grayscale(100%)' }}
                         priority
                     />
                     <div style={{
@@ -56,39 +57,57 @@ export default function ServicesPage() {
                         backgroundImage: `url(${Pattern.src})`,
                         backgroundSize: '1000px',
                         backgroundAttachment: 'fixed',
-                        opacity: 0.08
+                        opacity: 0.05
                     }} />
                 </div>
 
-                <div className="container" style={{ position: 'relative', zIndex: 1, textAlign: 'center' }}>
-                    <motion.h1
-                        initial={{ opacity: 0, y: 30 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        style={{
-                            fontSize: 'clamp(2.5rem, 8vw, 5.5rem)',
-                            fontFamily: 'var(--font-serif)',
-                            marginBottom: '2rem'
-                        }}
-                    >
-                        Our Expert Services
-                    </motion.h1>
-                    <motion.p
-                        initial={{ opacity: 0, y: 20 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ delay: 0.2 }}
-                        style={{
-                            fontSize: 'clamp(1rem, 2.5vw, 1.25rem)',
-                            maxWidth: '850px',
-                            margin: '0 auto',
-                            color: 'rgba(255,255,255,0.85)',
-                            lineHeight: 1.8
-                        }}
-                    >
-                        Unlock your potential as a published author with a complete suite of professional solutions tailored to bring your literary vision to the global stage.
-                    </motion.p>
+                <div className="container" style={{ position: 'relative', zIndex: 1 }}>
+                    <div className="grid grid-2" style={{ alignItems: 'center', gap: '4rem' }}>
+                        {/* Left Column: Content */}
+                        <motion.div
+                            initial={{ opacity: 0, x: -30 }}
+                            animate={{ opacity: 1, x: 0 }}
+                            style={{ textAlign: 'left' }}
+                        >
+                            <motion.h6
+                                initial={{ opacity: 0 }}
+                                animate={{ opacity: 1 }}
+                                style={{
+                                    color: 'var(--accent)',
+                                    fontWeight: 700,
+                                    textTransform: 'uppercase',
+                                    marginBottom: '1rem',
+                                    letterSpacing: '2px',
+                                    fontSize: '0.9rem'
+                                }}
+                            >
+                                Professional Publishing Solutions
+                            </motion.h6>
+                            <h1 style={{
+                                fontSize: 'clamp(2rem, 5vw, 3rem)',
+                                fontFamily: 'var(--font-serif)',
+                                marginBottom: '1.5rem',
+                                lineHeight: 1.1
+                            }}>
+                                Our Expert Services
+                            </h1>
+                            <p style={{
+                                fontSize: 'clamp(1rem, 1.5vw, 1.2rem)',
+                                maxWidth: '600px',
+                                color: 'rgba(255,255,255,0.9)',
+                                lineHeight: 1.7
+                            }}>
+                                Unlock your potential as a published author with a complete suite of professional solutions tailored to bring your literary vision to the global stage.
+                            </p>
+                        </motion.div>
+
+                        {/* Right Column: Mini Form */}
+                        <HeroForm />
+                    </div>
                 </div>
             </section>
 
+            {/* Services Grid Section */}
             <section className="section" style={{ padding: 'var(--section-padding) 0' }}>
                 <div className="container">
                     <div className="grid" style={{ gap: '2rem', gridTemplateColumns: 'repeat(auto-fit, minmax(clamp(280px, 100%, 380px), 1fr))' }}>

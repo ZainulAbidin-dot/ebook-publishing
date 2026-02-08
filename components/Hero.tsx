@@ -83,7 +83,7 @@ export default function Hero() {
                             {hero.description}
                         </span>
                         <h1 className="hero-title" style={{
-                            fontSize: 'clamp(2.5rem, 7vw, 5rem)',
+                            fontSize: 'clamp(2rem, 5vw, 3rem)',
                             fontWeight: 900,
                             marginBottom: '1.5rem',
                             lineHeight: 1.1,

@@ -4,10 +4,8 @@ import { motion } from 'framer-motion';
 import Image from 'next/image';
 import BgImage from '../../../assets/amazing-bg.webp';
 import Pattern from '../../../assets/pattern-2.webp';
-import ExceptionalImg from '../../../assets/exceptional-book.webp';
 import BioBookImg from '../../../assets/bio-book.webp';
-import Header from '../../../components/Header';
-import Footer from '../../../components/Footer';
+import HeroForm from '../../../components/HeroForm';
 
 export default function BookPrintingPage() {
     const serviceTitle = "Ready, Set, Print! Your Book, Your Format, Your Way";
@@ -65,7 +63,7 @@ export default function BookPrintingPage() {
             {/* Hero Section */}
             <section className="section" style={{
                 position: 'relative',
-                padding: 'var(--section-padding) 0',
+                padding: 'clamp(5rem, 10vw, 8rem) 0 clamp(4rem, 8vw, 6rem)',
                 overflow: 'hidden',
                 backgroundColor: 'var(--primary)',
                 color: 'white'
@@ -97,34 +95,58 @@ export default function BookPrintingPage() {
                     }} />
                 </div>
 
-                <div className="container" style={{ position: 'relative', zIndex: 1, textAlign: 'center' }}>
-                    <motion.h1
-                        initial={{ opacity: 0, y: 30 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        style={{
-                            fontSize: 'clamp(2.5rem, 8vw, 4rem)',
-                            fontFamily: 'var(--font-serif)',
-                            marginBottom: '2rem',
-                            maxWidth: '1000px',
-                            margin: '0 auto 2rem'
-                        }}
-                    >
-                        {serviceTitle}
-                    </motion.h1>
-                    <motion.p
-                        initial={{ opacity: 0, y: 20 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ delay: 0.2 }}
-                        style={{
-                            fontSize: 'clamp(1.1rem, 2.5vw, 1.25rem)',
-                            maxWidth: '850px',
-                            margin: '0 auto',
-                            color: 'rgba(255,255,255,0.9)',
-                            lineHeight: 1.8
-                        }}
-                    >
-                        {serviceSubtitle}
-                    </motion.p>
+                <div className="container" style={{ position: 'relative', zIndex: 1 }}>
+                    <div className="grid grid-2" style={{ alignItems: 'center', gap: '4rem' }}>
+                        {/* Left Column: Content */}
+                        <motion.div
+                            initial={{ opacity: 0, x: -30 }}
+                            animate={{ opacity: 1, x: 0 }}
+                            style={{ textAlign: 'left' }}
+                        >
+                            <motion.h6
+                                initial={{ opacity: 0 }}
+                                animate={{ opacity: 1 }}
+                                style={{
+                                    color: 'var(--accent)',
+                                    fontWeight: 700,
+                                    textTransform: 'uppercase',
+                                    marginBottom: '1rem',
+                                    letterSpacing: '2px',
+                                    fontSize: '0.9rem'
+                                }}
+                            >
+                                Professional Book Printing
+                            </motion.h6>
+                            <motion.h1
+                                initial={{ opacity: 0, y: 30 }}
+                                animate={{ opacity: 1, y: 0 }}
+                                style={{
+                                    fontSize: 'clamp(2rem, 5vw, 3rem)',
+                                    fontFamily: 'var(--font-serif)',
+                                    marginBottom: '2rem',
+                                    lineHeight: 1.1
+                                }}
+                            >
+                                {serviceTitle}
+                            </motion.h1>
+                            <motion.p
+                                initial={{ opacity: 0, y: 20 }}
+                                animate={{ opacity: 1, y: 0 }}
+                                transition={{ delay: 0.2 }}
+                                style={{
+                                    fontSize: 'clamp(1rem, 1.5vw, 1.25rem)',
+                                    maxWidth: '600px',
+                                    color: 'rgba(255,255,255,0.9)',
+                                    lineHeight: 1.8
+                                }}
+                            >
+                                {serviceSubtitle}
+                            </motion.p>
+                        </motion.div>
+
+                        {/* Right Column: Mini Form */}
+                        <HeroForm defaultService="book-printing" />
+                    </div>
                 </div>
             </section>
 
@@ -154,6 +176,7 @@ export default function BookPrintingPage() {
                                 viewport={{ once: true }}
                                 transition={{ delay: idx * 0.1 }}
                                 className="card"
+                                style={{ padding: '2rem', borderRadius: '1.5rem', backgroundColor: 'var(--bg-secondary)', border: '1px solid var(--border)' }}
                             >
                                 <h4 style={{ color: 'var(--primary)', marginBottom: '1rem', fontFamily: 'var(--font-serif)', fontSize: '1.4rem' }}>{opt.title}</h4>
                                 <p style={{ fontSize: '0.95rem', color: 'var(--text-muted)', lineHeight: 1.6 }}>{opt.desc}</p>
@@ -209,16 +232,15 @@ export default function BookPrintingPage() {
                         initial={{ opacity: 0, scale: 0.95 }}
                         whileInView={{ opacity: 1, scale: 1 }}
                         viewport={{ once: true }}
-                        className="card"
-                        style={{ padding: 'clamp(3.5rem, 8vw, 5rem) var(--container-padding)', background: 'var(--primary)', color: 'white', border: 'none', borderRadius: '3rem' }}
+                        style={{ padding: 'clamp(3.5rem, 8vw, 5rem) var(--container-padding)', background: 'var(--primary)', color: 'white', borderRadius: '3rem' }}
                     >
                         <h2 style={{ fontSize: 'clamp(2.5rem, 6vw, 3.5rem)', fontFamily: 'var(--font-serif)', marginBottom: '1.5rem' }}>READY TO WRITE YOUR LEGACY?</h2>
                         <p style={{ maxWidth: '600px', margin: '0 auto 3.5rem', opacity: 0.8, fontSize: 'clamp(1rem, 2.5vw, 1.1rem)' }}>
                             Join our community of published authors and let our experts bring your physical masterpiece to life.
                         </p>
-                        <div style={{ display: 'flex', gap: '1rem', justifyContent: 'center', flexWrap: 'wrap' }}>
-                            <button className="btn btn-primary" style={{ padding: '1.25rem 3rem', fontSize: '1.1rem', width: 'clamp(200px, 100%, 300px)' }}>Get Started Now</button>
-                            <button className="btn" style={{ padding: '1.25rem 3rem', fontSize: '1.1rem', border: '2px solid white', color: 'white', background: 'transparent', width: 'clamp(200px, 100%, 300px)' }}>Live Chat</button>
+                        <div style={{ display: 'flex', gap: '1.5rem', justifyContent: 'center', flexWrap: 'wrap' }}>
+                            <button className="btn btn-primary" style={{ padding: '1.25rem 3.5rem', width: 'auto' }}>Get Started Now</button>
+                            <button className="btn btn-outline" style={{ padding: '1.25rem 3.5rem', border: '2px solid white', color: 'white', width: 'auto' }}>Live Chat</button>
                         </div>
                     </motion.div>
                 </div>
@@ -227,3 +249,4 @@ export default function BookPrintingPage() {
         </main>
     );
 }
+

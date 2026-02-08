@@ -4,9 +4,7 @@ import { motion } from 'framer-motion';
 import Image from 'next/image';
 import BgImage from '../../../assets/process-bg.webp';
 import Pattern from '../../../assets/pattern-2.webp';
-import ExceptionalImg from '../../../assets/exceptional-book.webp';
-import Header from '../../../components/Header';
-import Footer from '../../../components/Footer';
+import HeroForm from '../../../components/HeroForm';
 
 export default function BookPublishingPage() {
     const serviceTitle = "Best Book Publishing Services Under One Roof";
@@ -64,7 +62,7 @@ export default function BookPublishingPage() {
             {/* Hero Section */}
             <section className="section" style={{
                 position: 'relative',
-                padding: 'var(--section-padding) 0',
+                padding: 'clamp(5rem, 10vw, 8rem) 0 clamp(4rem, 8vw, 6rem)',
                 overflow: 'hidden',
                 backgroundColor: 'var(--primary)',
                 color: 'white'
@@ -96,34 +94,58 @@ export default function BookPublishingPage() {
                     }} />
                 </div>
 
-                <div className="container" style={{ position: 'relative', zIndex: 1, textAlign: 'center' }}>
-                    <motion.h1
-                        initial={{ opacity: 0, y: 30 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        style={{
-                            fontSize: 'clamp(2.5rem, 8vw, 4rem)',
-                            fontFamily: 'var(--font-serif)',
-                            marginBottom: '2rem',
-                            maxWidth: '1000px',
-                            margin: '0 auto 2rem'
-                        }}
-                    >
-                        {serviceTitle}
-                    </motion.h1>
-                    <motion.p
-                        initial={{ opacity: 0, y: 20 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ delay: 0.2 }}
-                        style={{
-                            fontSize: 'clamp(1.1rem, 2.5vw, 1.25rem)',
-                            maxWidth: '850px',
-                            margin: '0 auto',
-                            color: 'rgba(255,255,255,0.9)',
-                            lineHeight: 1.8
-                        }}
-                    >
-                        {serviceSubtitle}
-                    </motion.p>
+                <div className="container" style={{ position: 'relative', zIndex: 1 }}>
+                    <div className="grid grid-2" style={{ alignItems: 'center', gap: '4rem' }}>
+                        {/* Left Column: Content */}
+                        <motion.div
+                            initial={{ opacity: 0, x: -30 }}
+                            animate={{ opacity: 1, x: 0 }}
+                            style={{ textAlign: 'left' }}
+                        >
+                            <motion.h6
+                                initial={{ opacity: 0 }}
+                                animate={{ opacity: 1 }}
+                                style={{
+                                    color: 'var(--accent)',
+                                    fontWeight: 700,
+                                    textTransform: 'uppercase',
+                                    marginBottom: '1rem',
+                                    letterSpacing: '2px',
+                                    fontSize: '0.9rem'
+                                }}
+                            >
+                                Global Book Publishing
+                            </motion.h6>
+                            <motion.h1
+                                initial={{ opacity: 0, y: 30 }}
+                                animate={{ opacity: 1, y: 0 }}
+                                style={{
+                                    fontSize: 'clamp(2rem, 5vw, 3rem)',
+                                    fontFamily: 'var(--font-serif)',
+                                    marginBottom: '2rem',
+                                    lineHeight: 1.1
+                                }}
+                            >
+                                {serviceTitle}
+                            </motion.h1>
+                            <motion.p
+                                initial={{ opacity: 0, y: 20 }}
+                                animate={{ opacity: 1, y: 0 }}
+                                transition={{ delay: 0.2 }}
+                                style={{
+                                    fontSize: 'clamp(1rem, 1.5vw, 1.25rem)',
+                                    maxWidth: '600px',
+                                    color: 'rgba(255,255,255,0.9)',
+                                    lineHeight: 1.8
+                                }}
+                            >
+                                {serviceSubtitle}
+                            </motion.p>
+                        </motion.div>
+
+                        {/* Right Column: Mini Form */}
+                        <HeroForm defaultService="book-publishing" />
+                    </div>
                 </div>
             </section>
 
@@ -150,100 +172,72 @@ export default function BookPublishingPage() {
                             </div>
                         </motion.div>
                         <motion.div
-                            initial={{ opacity: 0, scale: 0.9 }}
+                            initial={{ opacity: 0, scale: 0.95 }}
                             whileInView={{ opacity: 1, scale: 1 }}
                             viewport={{ once: true }}
-                            style={{ position: 'relative', height: 'clamp(400px, 50vw, 600px)', borderRadius: '2rem', overflow: 'hidden', boxShadow: '0 25px 50px rgba(0,0,0,0.15)' }}
                         >
-                            <Image
-                                src={ExceptionalImg}
-                                alt="Exceptional Results"
-                                fill
-                                style={{ objectFit: 'cover' }}
-                            />
+                            <Image src={BgImage} alt="Publishing Process" style={{ width: '100%', height: 'auto', borderRadius: '2rem', boxShadow: '0 30px 60px rgba(0,0,0,0.1)' }} />
                         </motion.div>
                     </div>
                 </div>
             </section>
 
-            {/* Why Choose Us */}
+            {/* Values Section */}
             <section className="section" style={{ backgroundColor: 'var(--bg-secondary)' }}>
                 <div className="container">
-                    <div style={{ textAlign: 'center', marginBottom: '4rem' }}>
-                        <h2 style={{ fontFamily: 'var(--font-serif)', fontSize: 'clamp(2.2rem, 5vw, 3rem)', color: 'var(--primary)', marginBottom: '1rem' }}>Why Choose Whitemount?</h2>
-                        <p style={{ color: 'var(--text-muted)', maxWidth: '700px', margin: '0 auto' }}>We believe in transparency, quality, and your success as an author.</p>
+                    <div style={{ textAlign: 'center', marginBottom: '5rem' }}>
+                        <h2 style={{ fontFamily: 'var(--font-serif)', fontSize: 'clamp(2.5rem, 5vw, 3.5rem)', color: 'var(--primary)' }}>Why Publish with Whitemount?</h2>
                     </div>
-                    <div className="grid grid-4" style={{ gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))' }}>
-                        {values.map((val, idx) => (
+                    <div className="grid" style={{ gap: '2rem', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))' }}>
+                        {values.map((v, idx) => (
                             <motion.div
                                 key={idx}
-                                initial={{ opacity: 0, y: 30 }}
+                                initial={{ opacity: 0, y: 20 }}
                                 whileInView={{ opacity: 1, y: 0 }}
                                 viewport={{ once: true }}
                                 transition={{ delay: idx * 0.1 }}
-                                className="glass"
-                                style={{ padding: '2.5rem', borderRadius: '2rem', background: 'white', border: '1px solid rgba(0,0,0,0.05)', textAlign: 'center' }}
+                                style={{ padding: '2.5rem', backgroundColor: 'white', borderRadius: '1.5rem', boxShadow: '0 10px 30px rgba(0,0,0,0.03)', border: '1px solid var(--border)' }}
                             >
-                                <div style={{ width: '50px', height: '50px', backgroundColor: 'var(--accent)', borderRadius: '12px', margin: '0 auto 1.5rem', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="white"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z" /></svg>
-                                </div>
-                                <h4 style={{ color: 'var(--primary)', marginBottom: '1rem', fontFamily: 'var(--font-serif)', fontSize: '1.4rem' }}>{val.title}</h4>
-                                <p style={{ color: 'var(--text-muted)', fontSize: '0.95rem', lineHeight: 1.7 }}>{val.desc}</p>
+                                <h3 style={{ fontSize: '1.35rem', color: 'var(--primary)', marginBottom: '1rem', fontFamily: 'var(--font-serif)' }}>{v.title}</h3>
+                                <p style={{ color: 'var(--text-muted)', lineHeight: 1.7 }}>{v.desc}</p>
                             </motion.div>
                         ))}
                     </div>
                 </div>
             </section>
 
-            {/* Process Section */}
-            <section className="section" style={{ backgroundColor: 'var(--primary)', color: 'white', position: 'relative', overflow: 'hidden' }}>
-                <div style={{
-                    position: 'absolute', top: 0, left: 0, right: 0, bottom: 0,
-                    backgroundImage: `url(${Pattern.src})`, backgroundSize: '400px', opacity: 0.1, zIndex: 0
-                }} />
-                <div className="container" style={{ position: 'relative', zIndex: 1 }}>
-                    <div style={{ textAlign: 'center', marginBottom: 'clamp(3rem, 8vw, 6rem)' }}>
-                        <h2 style={{ fontFamily: 'var(--font-serif)', fontSize: 'clamp(2rem, 5vw, 3rem)', marginBottom: '1.5rem' }}>Our Publishing Process</h2>
-                        <p style={{ maxWidth: '800px', margin: '0 auto', opacity: 0.8, fontSize: '1.1rem' }}>A systematic five-step process that ensures a seamless transition in every stage of publication.</p>
+            {/* Workflow Process */}
+            <section className="section">
+                <div className="container">
+                    <div style={{ textAlign: 'center', marginBottom: '4rem' }}>
+                        <h2 style={{ fontFamily: 'var(--font-serif)', fontSize: 'clamp(1.75rem, 4vw, 2.5rem)', color: 'var(--primary)' }}>A Streamlined Path to Publication</h2>
                     </div>
-                    <div className="grid grid-5" style={{ gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: '1.5rem' }}>
+                    <div style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem' }}>
                         {steps.map((step, idx) => (
                             <motion.div
                                 key={idx}
                                 initial={{ opacity: 0, x: -20 }}
                                 whileInView={{ opacity: 1, x: 0 }}
                                 viewport={{ once: true }}
-                                transition={{ delay: idx * 0.1 }}
-                                style={{ padding: '2rem', background: 'rgba(255,255,255,0.05)', borderRadius: '1.5rem', display: 'flex', flexDirection: 'column' }}
+                                style={{ display: 'flex', alignItems: 'center', gap: '2rem', padding: '2rem', backgroundColor: 'var(--bg-secondary)', borderRadius: '1rem' }}
                             >
-                                <span style={{ fontSize: '2rem', fontWeight: 900, color: 'var(--accent)', fontFamily: 'var(--font-serif)', opacity: 0.5 }}>{step.num}</span>
-                                <h4 style={{ color: 'var(--accent)', margin: '1rem 0', fontFamily: 'var(--font-serif)', fontSize: '1.2rem' }}>{step.title}</h4>
-                                <p style={{ opacity: 0.8, fontSize: '0.9rem', lineHeight: 1.6 }}>{step.desc}</p>
+                                <div style={{ minWidth: '60px', height: '60px', borderRadius: '50%', backgroundColor: 'var(--primary)', color: 'white', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '1.25rem', fontWeight: 700 }}>{step.num}</div>
+                                <div>
+                                    <h4 style={{ color: 'var(--primary)', marginBottom: '0.4rem' }}>{step.title}</h4>
+                                    <p style={{ color: 'var(--text-muted)', fontSize: '0.95rem' }}>{step.desc}</p>
+                                </div>
                             </motion.div>
                         ))}
                     </div>
                 </div>
             </section>
 
-            {/* CTA Section */}
-            <section className="section">
-                <div className="container" style={{ textAlign: 'center' }}>
-                    <motion.div
-                        initial={{ opacity: 0, scale: 0.95 }}
-                        whileInView={{ opacity: 1, scale: 1 }}
-                        viewport={{ once: true }}
-                        className="card"
-                        style={{ padding: 'clamp(3.5rem, 8vw, 5rem) var(--container-padding)', background: 'var(--primary)', color: 'white', border: 'none', borderRadius: '3rem' }}
-                    >
-                        <h2 style={{ fontSize: 'clamp(2.5rem, 6vw, 3.5rem)', fontFamily: 'var(--font-serif)', marginBottom: '1.5rem' }}>READY TO WRITE YOUR LEGACY?</h2>
-                        <p style={{ maxWidth: '600px', margin: '0 auto 3.5rem', opacity: 0.8, fontSize: 'clamp(1rem, 2.5vw, 1.1rem)' }}>
-                            Join our community of published authors and let our experts guide you to global publication success.
-                        </p>
-                        <div style={{ display: 'flex', gap: '1rem', justifyContent: 'center', flexWrap: 'wrap' }}>
-                            <button className="btn btn-primary" style={{ padding: '1.25rem 3rem', fontSize: '1.1rem', width: 'clamp(200px, 100%, 300px)' }}>Get Started Now</button>
-                            <button className="btn" style={{ padding: '1.25rem 3rem', fontSize: '1.1rem', border: '2px solid white', color: 'white', background: 'transparent', width: 'clamp(200px, 100%, 300px)' }}>Live Chat</button>
-                        </div>
-                    </motion.div>
+            {/* Final CTA */}
+            <section className="section" style={{ backgroundColor: 'var(--primary)', color: 'white', textAlign: 'center' }}>
+                <div className="container">
+                    <h2 style={{ fontSize: 'clamp(2.2rem, 5vw, 3.5rem)', fontFamily: 'var(--font-serif)', marginBottom: '2rem' }}>Launch Your Literary Career Today</h2>
+                    <p style={{ maxWidth: '700px', margin: '0 auto 3.5rem', fontSize: '1.2rem', opacity: 0.9 }}>Join the community of successful authors who have trusted Whitemount Publishing to bring their books to life.</p>
+                    <button className="btn btn-primary" style={{ padding: '1.25rem 3.5rem', fontSize: '1.1rem', width: 'auto' }}>Get Started with Publishing</button>
                 </div>
             </section>
         </main>
