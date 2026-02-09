@@ -7,53 +7,69 @@ import Pattern from '../../../assets/pattern-2.webp';
 import HeroForm from '../../../components/HeroForm';
 
 export default function BookPublishingPage() {
-    const serviceTitle = "Best Book Publishing Services Under One Roof";
-    const serviceSubtitle = "A seamless journey from manuscript to global marketplaces with our end-to-end publishing solutions. We deliver extraordinary results that leave a long-lasting impact.";
+    const serviceTitle = "Experience Transforming Your Manuscript with Our Expert Book Publishing Services!";
+    const serviceSubtitle = "Writers invest a lot of time and effort into their manuscripts. We understand the difficulties of getting published and aim to make the process easier. With our publishing services, we provide the support you need to succeed.";
 
     const features = [
         {
-            title: "Diverse Formats",
-            desc: "Complete support for EBook, Paperback, Hardcover, and Audio Book publishing tailored to your target audience."
+            title: "Manuscript Evaluation",
+            desc: "We read your manuscript, spot what works, and suggest improvements to make it better."
         },
         {
-            title: "Specialized Editing",
-            desc: "Professional Line Editing, Copy Editing, Developmental Editing, and Typesetting to polish your work to perfection."
+            title: "Professional Editing",
+            desc: "We catch typos and small mistakes. Our editors clean up your book, fixing errors and improving flow."
         },
         {
-            title: "Distribution & Royalty",
-            desc: "Global distribution setup via Print on Demand. You retain 100% content ownership and all earned royalties."
+            title: "Custom Cover Design",
+            desc: "Artists from our team always design things to inspire and always draw attention."
         },
         {
-            title: "Marketing & Promo",
-            desc: "Strategic promotional consultation to increase awareness and position your book for success in the global market."
+            title: "Publishing & Distribution",
+            desc: "We place your book in physical and online stores, handling the technical side so you can focus on your story."
         }
     ];
 
     const values = [
         {
-            title: "Privacy & Protection",
-            desc: "We ensure to protect your confidential information and guarantee 100% intellectual property rights."
+            title: "Expert Publishing Team",
+            desc: "Our team has a deep understanding of the book publishing industry. We know exactly what published authors face."
         },
         {
-            title: "Maximum Profitability",
-            desc: "Enjoy the complete profit you earn from your book. We don’t charge any commission on your sales."
+            title: "Personalized Approach",
+            desc: "Everyone has their own unique life story. We make sure to give each person who comes to us the chance to tell their story."
         },
         {
-            title: "Qualified Experts",
-            desc: "Our professionals provide you with a perfect book for your readers to read, ensuring coherence and clarity."
+            title: "Enhance Reach & Sales",
+            desc: "Rely on our top-tier team, proficient in delivering excellence in publishing. We master the art of crafting compelling and meaningful books."
         },
         {
-            title: "Authentic Research",
-            desc: "Extensive research about your book's topic ensures that every piece of work is authentic and authoritative."
+            title: "Affordable Excellence",
+            desc: "Affordable book publishing proves that you don’t have to sacrifice quality for cost. We help you stay on budget without limits on creativity."
+        }
+    ];
+
+    const testimonials = [
+        {
+            quote: "I highly recommend Whitemount to any aspiring author. They were incredibly helpful throughout the entire process and made self-publishing a breeze!",
+            author: "Author"
+        },
+        {
+            quote: "I was hesitant to self-publish, but Whitemount made it easy and stress-free. Their marketing and promotion strategies helped me reach a wider audience.",
+            author: "Author (Editing)"
+        },
+        {
+            quote: "Whitemount publishing services are top-notch. Their attention to detail, prompt communication, and commitment to quality made the entire process a breeze.",
+            author: "Author (Formatting & Cover)"
         }
     ];
 
     const steps = [
-        { num: "01", title: "Signup", desc: "A dedicated and responsive manager is allocated to your project to guide you through every stage." },
-        { num: "02", title: "Outline & Research", desc: "Professional editors carry out in-depth research to refine the theme and structural plan of your book." },
-        { num: "03", title: "Initial Draft", desc: "We complete the editing of the first chapter and seek your approval before proceeding further." },
-        { num: "04", title: "Revision & Finalization", desc: "Meticulous polishing and revisions are provided to ensure your manuscript reaches literary perfection." },
-        { num: "05", title: "Global Publication", desc: "Final distribution across global retailers with a focus on timely delivery and technical excellence." }
+        { num: "01", title: "Review & Enhancement", desc: "Our team carefully reviews your manuscript. We make sure it connects with readers and captures their interest." },
+        { num: "02", title: "Refining Content", desc: "Once you approve our changes, our team will update the content to match your goals. We fix mistakes and make your writing smooth." },
+        { num: "03", title: "Analysis & Editing", desc: "After enhancement, our editors will analyze for literary perfection. We ensure rigorous scrutiny and critical analysis suitable for your genre." },
+        { num: "04", title: "Formatting & Layout", desc: "We design unique book covers and layouts for your eBooks. Our goal is to make them easy to read and visually appealing." },
+        { num: "05", title: "Final Steps", desc: "We complete every technical and administrative step. We do everything from registering an ISBN to filing the work for publication." },
+        { num: "06", title: "Marketing & Promotion", desc: "We offer personalized marketing that highlights the best parts of your book. Our approach ensures your book reaches the right audience." }
     ];
 
     return (
@@ -232,11 +248,46 @@ export default function BookPublishingPage() {
                 </div>
             </section>
 
+            {/* Testimonials Section */}
+            <section className="section" style={{ backgroundColor: 'white' }}>
+                <div className="container">
+                    <div style={{ textAlign: 'center', marginBottom: '4rem' }}>
+                        <h2 style={{ fontFamily: 'var(--font-serif)', fontSize: 'clamp(2rem, 4vw, 3rem)', color: 'var(--primary)' }}>What Our Authors Say</h2>
+                    </div>
+                    <div className="grid" style={{ gap: '2rem', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))' }}>
+                        {testimonials.map((t, idx) => (
+                            <motion.div
+                                key={idx}
+                                initial={{ opacity: 0, y: 20 }}
+                                whileInView={{ opacity: 1, y: 0 }}
+                                viewport={{ once: true }}
+                                transition={{ delay: idx * 0.1 }}
+                                style={{
+                                    padding: '2.5rem',
+                                    backgroundColor: 'var(--bg-secondary)',
+                                    borderRadius: '1.5rem',
+                                    display: 'flex',
+                                    flexDirection: 'column',
+                                    justifyContent: 'space-between'
+                                }}
+                            >
+                                <p style={{ fontSize: '1.1rem', fontStyle: 'italic', color: 'var(--text-muted)', marginBottom: '1.5rem', lineHeight: 1.6 }}>
+                                    "{t.quote}"
+                                </p>
+                                <h4 style={{ color: 'var(--primary)', fontFamily: 'var(--font-serif)', fontSize: '1.1rem' }}>— {t.author}</h4>
+                            </motion.div>
+                        ))}
+                    </div>
+                </div>
+            </section>
+
             {/* Final CTA */}
             <section className="section" style={{ backgroundColor: 'var(--primary)', color: 'white', textAlign: 'center' }}>
                 <div className="container">
-                    <h2 style={{ fontSize: 'clamp(2.2rem, 5vw, 3.5rem)', fontFamily: 'var(--font-serif)', marginBottom: '2rem' }}>Launch Your Literary Career Today</h2>
-                    <p style={{ maxWidth: '700px', margin: '0 auto 3.5rem', fontSize: '1.2rem', opacity: 0.9 }}>Join the community of successful authors who have trusted Whitemount Publishing to bring their books to life.</p>
+                    <h2 style={{ fontSize: 'clamp(2.2rem, 5vw, 3.5rem)', fontFamily: 'var(--font-serif)', marginBottom: '2rem' }}>Ready To Work Your Next Projects?</h2>
+                    <p style={{ maxWidth: '700px', margin: '0 auto 3.5rem', fontSize: '1.2rem', opacity: 0.9 }}>
+                        Every author's journey is important to us. We are dedicated to supporting you at every step. Join the community of successful authors who have trusted Whitemount.
+                    </p>
                     <button className="btn btn-primary" style={{ padding: '1.25rem 3.5rem', fontSize: '1.1rem', width: 'auto' }}>Get Started with Publishing</button>
                 </div>
             </section>
