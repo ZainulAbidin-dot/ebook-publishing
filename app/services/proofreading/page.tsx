@@ -5,6 +5,7 @@ import Image from 'next/image';
 import BgImage from '../../../assets/exceptional-book.webp';
 import Pattern from '../../../assets/pattern-2.webp';
 import HeroForm from '../../../components/HeroForm';
+import BookGallery from '../../../components/BookGallery';
 
 export default function ProofreadingPage() {
     const serviceTitle = "Meticulous Proofreading for a Polished Finish";
@@ -123,6 +124,9 @@ export default function ProofreadingPage() {
                     </div>
                 </div>
             </section>
+
+            {/* Book Gallery */}
+            <BookGallery />
 
             {/* CTA Section */}
             <section className="section" style={{ backgroundColor: 'var(--primary)', color: 'white', textAlign: 'center' }}>

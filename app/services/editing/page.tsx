@@ -5,6 +5,7 @@ import Image from 'next/image';
 import BgImage from '../../../assets/exceptional-book.webp';
 import Pattern from '../../../assets/pattern-2.webp';
 import HeroForm from '../../../components/HeroForm';
+import BookGallery from '../../../components/BookGallery';
 
 export default function EditingPage() {
     const serviceTitle = "Professional Book Editing";
@@ -181,6 +182,9 @@ export default function EditingPage() {
                     </div>
                 </div>
             </section>
+
+            {/* Book Gallery */}
+            <BookGallery />
 
             {/* CTA Section */}
             <section className="section" style={{ backgroundColor: 'var(--bg-secondary)' }}>

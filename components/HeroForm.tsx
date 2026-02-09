@@ -9,6 +9,19 @@ interface HeroFormProps {
 
 export default function HeroForm({ defaultService = "" }: HeroFormProps) {
     const { servicesOverview } = data.pages.home;
+    const [formData, setFormData] = React.useState({
+        service: defaultService,
+        name: '',
+        phone: '',
+        email: ''
+    });
+    const [status, setStatus] = React.useState<'idle' | 'loading' | 'success' | 'error'>('idle');
+
+    React.useEffect(() => {
+        if (defaultService) {
+            setFormData(prev => ({ ...prev, service: defaultService }));
+        }
+    }, [defaultService]);
 
     const inputStyle = {
         width: '100%',
@@ -20,6 +33,37 @@ export default function HeroForm({ defaultService = "" }: HeroFormProps) {
         transition: 'border-color 0.2s',
         marginBottom: '1rem',
         color: '#212529'
+    };
+
+    const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
+        const { name, value } = e.target;
+        setFormData(prev => ({ ...prev, [name]: value }));
+    };
+
+    const handleSubmit = async (e: React.FormEvent) => {
+        e.preventDefault();
+        setStatus('loading');
+
+        try {
+            const res = await fetch('/api/contact', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(formData),
+            });
+
+            if (res.ok) {
+                setStatus('success');
+                setFormData({ service: defaultService, name: '', phone: '', email: '' });
+                setTimeout(() => setStatus('idle'), 5000);
+            } else {
+                setStatus('error');
+                setTimeout(() => setStatus('idle'), 5000);
+            }
+        } catch (error) {
+            console.error('Submission error:', error);
+            setStatus('error');
+            setTimeout(() => setStatus('idle'), 5000);
+        }
     };
 
     return (
@@ -53,27 +97,80 @@ export default function HeroForm({ defaultService = "" }: HeroFormProps) {
                     Fill the form below to get a custom quote.
                 </p>
 
-                <form onSubmit={(e) => e.preventDefault()}>
+                {status === 'success' && (
+                    <div style={{
+                        padding: '1rem',
+                        marginBottom: '1rem',
+                        backgroundColor: '#d1e7dd',
+                        color: '#0f5132',
+                        borderRadius: '0.5rem',
+                        textAlign: 'center'
+                    }}>
+                        Message sent successfully! We'll get back to you soon.
+                    </div>
+                )}
+
+                {status === 'error' && (
+                    <div style={{
+                        padding: '1rem',
+                        marginBottom: '1rem',
+                        backgroundColor: '#f8d7da',
+                        color: '#842029',
+                        borderRadius: '0.5rem',
+                        textAlign: 'center'
+                    }}>
+                        Something went wrong. Please try again or contact us directly.
+                    </div>
+                )}
+
+                <form onSubmit={handleSubmit}>
                     <select
-                        defaultValue={defaultService}
+                        name="service"
+                        value={formData.service}
+                        onChange={handleChange}
                         style={{ ...inputStyle, cursor: 'pointer' }}
                     >
                         <option value="">Select Service*</option>
                         {servicesOverview.items.map((item, idx) => (
-                            <option key={idx} value={item.title.toLowerCase().replace(/\s+/g, '-')}>
+                            <option key={idx} value={item.title}>
                                 {item.title}
                             </option>
                         ))}
                     </select>
-                    <input type="text" placeholder="Your Name*" style={inputStyle} required />
+                    <input
+                        type="text"
+                        name="name"
+                        value={formData.name}
+                        onChange={handleChange}
+                        placeholder="Your Name*"
+                        style={inputStyle}
+                        required
+                    />
                     <div style={{ display: 'grid', gridTemplateColumns: 'minmax(0, 1fr) minmax(0, 1fr)', gap: '1rem' }}>
-                        <input type="tel" placeholder="Phone No.*" style={inputStyle} required />
-                        <input type="email" placeholder="Email Address*" style={inputStyle} required />
+                        <input
+                            type="tel"
+                            name="phone"
+                            value={formData.phone}
+                            onChange={handleChange}
+                            placeholder="Phone No.*"
+                            style={inputStyle}
+                            required
+                        />
+                        <input
+                            type="email"
+                            name="email"
+                            value={formData.email}
+                            onChange={handleChange}
+                            placeholder="Email Address*"
+                            style={inputStyle}
+                            required
+                        />
                     </div>
                     <motion.button
                         whileHover={{ scale: 1.02 }}
                         whileTap={{ scale: 0.98 }}
                         type="submit"
+                        disabled={status === 'loading'}
                         className="btn btn-primary"
                         style={{
                             width: '100%',
@@ -86,10 +183,12 @@ export default function HeroForm({ defaultService = "" }: HeroFormProps) {
                             display: 'flex',
                             alignItems: 'center',
                             justifyContent: 'center',
-                            gap: '0.5rem'
+                            gap: '0.5rem',
+                            opacity: status === 'loading' ? 0.7 : 1,
+                            cursor: status === 'loading' ? 'not-allowed' : 'pointer'
                         }}
                     >
-                        Get Started
+                        {status === 'loading' ? 'Sending...' : 'Get Started'}
                         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"><polyline points="9 18 15 12 9 6" /></svg>
                     </motion.button>
                 </form>

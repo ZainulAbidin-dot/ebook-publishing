@@ -6,6 +6,7 @@ import data from '../../../src/data/site-content.json';
 import BgImage from '../../../assets/expertise.png';
 import Pattern from '../../../assets/pattern-2.webp';
 import HeroForm from '../../../components/HeroForm';
+import BookGallery from '../../../components/BookGallery';
 
 export default function ServicePage() {
     const serviceTitle = "Engaging Content and Affordable Ghostwriting Services";
@@ -285,6 +286,9 @@ export default function ServicePage() {
                     </div>
                 </div>
             </section>
+
+            {/* Book Gallery */}
+            <BookGallery />
 
             {/* Final CTA */}
             <section className="section" style={{ backgroundColor: 'var(--primary)', position: 'relative', overflow: 'hidden' }}>

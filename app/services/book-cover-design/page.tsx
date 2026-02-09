@@ -10,6 +10,7 @@ import ExceptionalBookImg from '../../../assets/exceptional-book.webp';
 import TypesImg from '../../../assets/types-cd-11.webp';
 import BioBookImg from '../../../assets/bio-book.webp';
 import HeroForm from '../../../components/HeroForm';
+import BookGallery from '../../../components/BookGallery';
 
 export default function BookCoverDesignPage() {
     const serviceTitle = "Attractive cover designs to gain attention from potential readers";
@@ -245,6 +246,9 @@ export default function BookCoverDesignPage() {
                     </div>
                 </div>
             </section>
+
+            {/* Book Gallery */}
+            <BookGallery />
 
             {/* Final CTA */}
             <section className="section" style={{ backgroundColor: 'var(--primary)', color: 'white' }}>

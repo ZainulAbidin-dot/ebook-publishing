@@ -5,6 +5,7 @@ import Image from 'next/image';
 import BgImage from '../../../assets/process-bg.webp';
 import Pattern from '../../../assets/pattern-2.webp';
 import HeroForm from '../../../components/HeroForm';
+import BookGallery from '../../../components/BookGallery';
 
 export default function BookPublishingPage() {
     const serviceTitle = "Experience Transforming Your Manuscript with Our Expert Book Publishing Services!";
@@ -280,6 +281,9 @@ export default function BookPublishingPage() {
                     </div>
                 </div>
             </section>
+
+            {/* Book Gallery */}
+            <BookGallery />
 
             {/* Final CTA */}
             <section className="section" style={{ backgroundColor: 'var(--primary)', color: 'white', textAlign: 'center' }}>

@@ -5,6 +5,7 @@ import Image from 'next/image';
 import BgImage from '../../../assets/expertise.png';
 import Pattern from '../../../assets/pattern-2.webp';
 import HeroForm from '../../../components/HeroForm';
+import BookGallery from '../../../components/BookGallery';
 
 export default function ChildrensBookPage() {
     const serviceTitle = "Enchanting Stories for Young Readers";
@@ -123,6 +124,9 @@ export default function ChildrensBookPage() {
                     </div>
                 </div>
             </section>
+
+            {/* Book Gallery */}
+            <BookGallery />
 
             {/* CTA Section */}
             <section className="section" style={{ backgroundColor: 'var(--primary)', color: 'white', textAlign: 'center' }}>

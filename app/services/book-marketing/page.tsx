@@ -5,6 +5,7 @@ import Image from 'next/image';
 import BgImage from '../../../assets/marketing.png';
 import Pattern from '../../../assets/pattern-2.webp';
 import HeroForm from '../../../components/HeroForm';
+import BookGallery from '../../../components/BookGallery';
 
 export default function BookMarketingPage() {
     const serviceTitle = "Marketing That Turns Pages & Profits";
@@ -161,6 +162,9 @@ export default function BookMarketingPage() {
                     </div>
                 </div>
             </section>
+
+            {/* Book Gallery */}
+            <BookGallery />
 
             {/* CTA Section */}
             <section className="section" style={{ backgroundColor: 'var(--bg-secondary)' }}>

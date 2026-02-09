@@ -6,6 +6,7 @@ import BgImage from '../../../assets/amazing-bg.webp';
 import Pattern from '../../../assets/pattern-2.webp';
 import BioBookImg from '../../../assets/bio-book.webp';
 import HeroForm from '../../../components/HeroForm';
+import BookGallery from '../../../components/BookGallery';
 
 export default function BookPrintingPage() {
     const serviceTitle = "Ready, Set, Print! Your Book, Your Format, Your Way";
@@ -224,6 +225,9 @@ export default function BookPrintingPage() {
                     </div>
                 </div>
             </section>
+
+            {/* Book Gallery */}
+            <BookGallery />
 
             {/* CTA Section */}
             <section className="section">
